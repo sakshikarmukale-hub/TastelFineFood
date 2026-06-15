@@ -1,13 +1,2 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Home from "../pages/Home";
-
-const Routing = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
-  );
-};
-
-export default Routing;
+import Header from "../components/Header.jsx"
+import Footer from "../components/Footer.jsx"
