@@ -1,8 +1,10 @@
 import React, { useState, useEffect  } from "react";
 import { AppBar, Toolbar, Box, Typography, IconButton } from "@mui/material";
 import logo from "../assets/Logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(false);
 
@@ -83,84 +85,88 @@ useEffect(() => {
       }}
     >
       {/* MENU / CLOSE ICON */}
-      <IconButton
-        onClick={() => setOpenMenu(!openMenu)}
-        sx={{
-          width: 55,
-          height: 55,
-          position: "relative",
-          ml: {
-            xs: 0,
-            sm: 2,
-            md: 3,
-          },
-          pl: {
-            xs: 0.5,
-            sm: 0,
-          },
-        }}
-      >
-        {/* TOP LINE */}
-        <Box
-          sx={{
-            position: "absolute",
-            width: 30,
-            height: "2.5px",
-            background: "#fff",
-            borderRadius: "20px",
-            transition: "all .45s ease",
-            transform: openMenu ? "rotate(45deg)" : "rotate(0deg)",
-            top: openMenu ? "50%" : 16,
-          }}
-        />
+     <IconButton
+  onClick={() => setOpenMenu(!openMenu)}
+  sx={{
+    width: 55,
+    height: 55,
+    position: "relative",
+    ml: { xs: 0, sm: 2, md: 3 },
+    pl: { xs: 0.5, sm: 0 },
+  }}
+>
+  {/* TOP LINE */}
+  <Box
+    sx={{
+      position: "absolute",
+      width: 30,
+      height: "2.5px",
+      background: "#fff",
+      borderRadius: "20px",
+      transition: "all 0.4s ease",
+      top: "50%",
+      left: "50%",
+      transform: openMenu
+        ? "translateX(-50%) translateY(-50%) rotate(45deg)"
+        : "translateX(-50%) translateY(calc(-50% - 8px)) rotate(0deg)",
+    }}
+  />
 
-        {/* MIDDLE LINE */}
-        <Box
-          sx={{
-            position: "absolute",
-            width: 30,
-            height: "2.5px",
-            background: "#fff",
-            borderRadius: "20px",
-            transition: "all .3s ease",
-            opacity: openMenu ? 0 : 1,
-          }}
-        />
+  {/* MIDDLE LINE */}
+  <Box
+    sx={{
+      position: "absolute",
+      width: 30,
+      height: "2.5px",
+      background: "#fff",
+      borderRadius: "20px",
+      transition: "all 0.3s ease",
+      top: "50%",
+      left: "50%",
+      transform: "translateX(-50%) translateY(-50%)",
+      opacity: openMenu ? 0 : 1,
+    }}
+  />
 
-        {/* BOTTOM LINE */}
-        <Box
-          sx={{
-            position: "absolute",
-            width: 30,
-            height: "2.5px",
-            background: "#fff",
-            borderRadius: "20px",
-            transition: "all .45s ease",
-            transform: openMenu ? "rotate(-45deg)" : "rotate(0deg)",
-            bottom: openMenu ? "50%" : 16,
-          }}
-        />
-      </IconButton>
+  {/* BOTTOM LINE */}
+  <Box
+    sx={{
+      position: "absolute",
+      width: 30,
+      height: "2.5px",
+      background: "#fff",
+      borderRadius: "20px",
+      transition: "all 0.4s ease",
+      top: "50%",
+      left: "50%",
+      transform: openMenu
+        ? "translateX(-50%) translateY(-50%) rotate(-45deg)"
+        : "translateX(-50%) translateY(calc(-50% + 8px)) rotate(0deg)",
+    }}
+  />
+</IconButton>
 
       {/* RIGHT LOGO */}
       <Box
-        component="img"
-        src={logo}
-        alt="Logo"
-        sx={{
-          height: {
-            xs: 48,
-            sm: 55,
-            md: 62,
-          },
-          objectFit: "contain",
-          mr: {
-            xs: 1,
-            sm: 3,
-            md: 4,
-          },
-        }}
-      />
+  component="img"
+  src={logo}
+  alt="Logo"
+  onClick={() => navigate("/")}
+  sx={{
+    height: {
+      xs: 48,
+      sm: 55,
+      md: 62,
+    },
+    objectFit: "contain",
+    mr: {
+      xs: 1,
+      sm: 3,
+      md: 4,
+    },
+    cursor: "pointer",
+  }}
+/>
     </Box>
 
     {/* DESKTOP HEADER */}
@@ -178,14 +184,16 @@ useEffect(() => {
     >
       {/* LEFT LOGO */}
       <Box
-        component="img"
-        src={logo}
-        alt="Logo"
-        sx={{
-          height: 65,
-          objectFit: "contain",
-        }}
-      />
+  component="img"
+  src={logo}
+  alt="Logo"
+  onClick={() => navigate("/")}
+  sx={{
+    height: 65,
+    objectFit: "contain",
+    cursor: "pointer",
+  }}
+/>
 
       {/* DESKTOP MENU */}
       <Box
