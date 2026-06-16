@@ -11,6 +11,7 @@ function Footer() {
 
   return (
     <>
+    <Box sx={{ m:0, p:0, backgroundColor: "#fff" }}> 
       <Box
         sx={{
           backgroundImage: `url(${footerBg})`,
@@ -46,14 +47,14 @@ function Footer() {
               sx={{
                 display: "flex",
                 flexDirection: { xs: "column", sm: "row" },
-                flexWrap: "nowrap", // ✅ no wrapping
+                flexWrap: "nowrap", 
                 alignItems: "flex-start",
                 justifyContent: "space-between",
                 gap: { xs: 3, sm: 1.5, md: 2, lg: 5 },
                 mb: 4,
                 width: "100%",
                 boxSizing: "border-box",
-                overflowX: "hidden", // ✅ no scrollbar on tablet
+                overflowX: "hidden", 
               }}
             >
               {/* Who We Are */}
@@ -339,6 +340,7 @@ function Footer() {
             </Box>
           </Box>
         </Box>
+      </Box>
       </Box>
     </>
   );
