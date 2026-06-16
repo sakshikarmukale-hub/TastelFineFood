@@ -250,8 +250,9 @@ useEffect(() => {
                 sx={{
                   color: scrolled ? "#fff" : "#fff",
                   fontSize: "15px",
-                  fontFamily: "Segoe UI, Tahoma, sans-serif",
-                  letterSpacing: "1.5",
+                  // fontFamily: "Segoe UI, Tahoma, sans-serif",
+                  fontFamily: "Nunito Regular , sans-serif",
+                  letterSpacing: "9.5",
                   position: "relative",
                   zIndex: 2,
                   transition: "color 0.4s ease",
