@@ -207,7 +207,8 @@ const Header = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: 1,
+                gap: 1.5,
+                
               }}
             >
               {menuItems.map((item, index) => (
@@ -220,12 +221,6 @@ const Header = () => {
                   <Box
                     onClick={() => {
                       setActiveMenu(index);
-
-                      {
-                        /* if (item === "Who We Are") {
-    navigate("/who-we-are");
-  } */
-                      }
 
                       if (item === "What We Do") {
                         navigate("/what-we-do");
@@ -265,7 +260,7 @@ const Header = () => {
                       cursor: "pointer",
                       border:
                         activeMenu === index || activeMenu === `inner-${index}`
-                          ? `1px solid ${scrolled ? "#fff" : "#000"}`
+                          ? `1px solid ${scrolled ? "#fff" : "#fff"}`
                           : "1px solid transparent",
                       borderRadius: "4px",
                     }}
@@ -287,8 +282,8 @@ const Header = () => {
                         color: scrolled ? "#fff" : "#fff",
                         fontSize: "15px",
                         // fontFamily: "Segoe UI, Tahoma, sans-serif",
-                        fontFamily: "Nunito Regular , sans-serif",
-                        letterSpacing: "9.5",
+                        fontFamily: "Nunito-Regular",
+                        letterSpacing: "2px",
                         position: "relative",
                         zIndex: 2,
                         transition: "color 0.4s ease",
@@ -316,11 +311,21 @@ const Header = () => {
                         (subItem, subIndex) => (
                           <Box
                             key={subItem}
-                            onClick={() =>
+                            onClick={() => {
                               setActiveSubMenu(
                                 activeSubMenu === subIndex ? null : subIndex,
-                              )
-                            }
+                              );
+
+                              if (subItem === "Our History") {
+                                navigate("/our-history");
+                                setHoveredMenu(null);
+                              }
+
+                              if (subItem === "Vision & Mission") {
+                                navigate("/vision-mission");
+                                setHoveredMenu(null);
+                              }
+                            }}
                             sx={{
                               position: "relative",
                               cursor: "pointer",
