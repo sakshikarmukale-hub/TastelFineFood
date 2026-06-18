@@ -187,66 +187,91 @@ const Sustainability = () => {
       {/* Swiper Section */}
       {/* MAIN SWIPER SECTION */}
       <Box
-  component={motion.div}
-  initial={{
-    opacity: 0,
-    y: 120,
-  }}
-  whileInView={{
-    opacity: 1,
-    y: 0,
-  }}
-  transition={{
-    duration: 1.2,
-    ease: "easeOut",
-  }}
-  viewport={{
-    once: true,
-    amount: 0.2,
-  }}
-  sx={{
-    width: "100%",
-    height: "300px",
-    backgroundImage: `url(${Bg2})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    display: "grid",
-    gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-    alignItems: "stretch",
-    minHeight: { xs: "auto", md: "550px", lg: "550px" },
-    overflow: "hidden",
+        component={motion.div}
+        initial={{
+          opacity: 0,
+          y: 120,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 1.2,
+          ease: "easeOut",
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        sx={{
+          width: "100%",
+          backgroundImage: `url(${Bg2})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
 
-    "& .swiper": {
-      height: "100% !important",
-      width: "100% !important",
-    },
-    "& .swiper-slide": {
-      height: "100% !important",
-    },
-    "& .swiper-wrapper": {
-      height: "100% !important",
-    },
-    "& .swiper-pagination": {
-      bottom: "140px !important",
-    },
-    "& .swiper-pagination-bullet": {
-      background: "#fff",
-      opacity: 0.6,
-      width: "10px",
-      height: "10px",
-    },
-    "& .swiper-pagination-bullet-active": {
-      opacity: 1,
-      background: "#E8B86D",
-    },
-  }}
->
+          display: "grid",
+
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "1fr 1fr",
+          },
+
+          alignItems: "center",
+
+          minHeight: {
+            xs: "auto",
+            sm: "auto",
+            md: "500px",
+            lg: "550px",
+          },
+
+          overflow: "hidden",
+
+          "& .swiper": {
+            height: "100% !important",
+            width: "100% !important",
+          },
+
+          "& .swiper-slide": {
+            height: "100% !important",
+          },
+
+          "& .swiper-wrapper": {
+            height: "100% !important",
+          },
+
+          "& .swiper-pagination": {
+            bottom: {
+              xs: "10px",
+              md: "20px",
+            },
+          },
+
+          "& .swiper-pagination-bullet": {
+            background: "#fff",
+            opacity: 0.6,
+            width: "10px",
+            height: "10px",
+          },
+
+          "& .swiper-pagination-bullet-active": {
+            opacity: 1,
+            background: "#E8B86D",
+          },
+        }}
+      >
         {/* LEFT — IMAGE SWIPER ONLY, full bleed */}
         <Box
           sx={{
-            height: { xs: "250px", md: "420px", lg: "650px" },
             width: "100%",
+            height: {
+              xs: "250px",
+              sm: "320px",
+              md: "500px",
+              lg: "550px",
+            },
             overflow: "hidden",
           }}
         >
@@ -288,36 +313,63 @@ const Sustainability = () => {
           }}
         >
           {/* Mirch decoration */}
-         <Box
-  component={motion.img}
-  src={Mirch}
-  alt="mirch"
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  transition={{
-    duration: 3,
-    ease: "easeInOut",
-  }}
-  viewport={{
-    once: true,
-    amount: 0.3,
-  }}
-  sx={{
-    position: "absolute",
-    top: { xs: "10px", md: "60px" },
-    right: { xs: "10px", md: "90px" },
-    width: { xs: "45px", md: "95px" },
-    pointerEvents: "none",
-  }}
-/>
+          <Box
+            component={motion.img}
+            src={Mirch}
+            alt="mirch"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{
+              duration: 3,
+              ease: "easeInOut",
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            sx={{
+              position: "absolute",
+
+              top: {
+                xs: "10px",
+                md: "60px",
+              },
+
+              right: {
+                xs: "15px",
+                md: "90px",
+              },
+
+              width: {
+                xs: "40px",
+                sm: "55px",
+                md: "75px",
+                lg: "95px",
+              },
+
+              pointerEvents: "none",
+            }}
+          />
 
           {/* TITLE — always constant */}
           <Typography
             sx={{
               fontFamily: "Mattiface",
               color: "#D7AF64",
-              fontSize: { xs: "42px", md: "55px", lg: "82px" },
-              lineHeight: 0.3,
+
+              fontSize: {
+                xs: "42px",
+                sm: "55px",
+                md: "65px",
+                lg: "82px",
+              },
+
+              lineHeight: 1,
+
+              mb: {
+                xs: 1,
+                md: 2,
+              },
             }}
           >
             Sustainability
@@ -328,11 +380,25 @@ const Sustainability = () => {
             sx={{
               fontFamily: "Nunito-Bold",
               color: "#2E5684",
-              fontSize: { xs: "22px", md: "28px", lg: "36px" },
-              mb: 1.5,
-              ml: 8,
+
+              fontSize: {
+                xs: "20px",
+                sm: "24px",
+                md: "28px",
+                lg: "36px",
+              },
+
+              ml: {
+                xs: 0,
+                md: 6,
+                lg: 8,
+              },
+
+              mb: 2,
+
               animation: `fadeIn-${activeIndex} 0.5s ease-out forwards`,
               opacity: 0,
+
               [`@keyframes fadeIn-${activeIndex}`]: {
                 from: { opacity: 0 },
                 to: { opacity: 1 },
@@ -346,8 +412,17 @@ const Sustainability = () => {
           <Typography
             sx={{
               fontFamily: "Nunito-Regular",
-              fontSize: { xs: "13px", md: "14px", lg: "15px" },
-              lineHeight: 1.8,
+              fontSize: {
+                xs: "13px",
+                sm: "14px",
+                md: "14px",
+                lg: "15px",
+              },
+
+              lineHeight: {
+                xs: 1.7,
+                md: 1.8,
+              },
               mb: 1,
               color: "#333",
               animation: `fadeIn-${activeIndex} 0.5s ease-out forwards`,
@@ -365,8 +440,17 @@ const Sustainability = () => {
           <Typography
             sx={{
               fontFamily: "Nunito-Regular",
-              fontSize: { xs: "13px", md: "14px", lg: "15px" },
-              lineHeight: 1.8,
+              fontSize: {
+                xs: "13px",
+                sm: "14px",
+                md: "14px",
+                lg: "15px",
+              },
+
+              lineHeight: {
+                xs: 1.7,
+                md: 1.8,
+              },
               mb: 1,
               color: "#333",
               animation: `fadeIn-${activeIndex} 0.5s ease-out forwards`,
@@ -385,8 +469,17 @@ const Sustainability = () => {
             <Typography
               sx={{
                 fontFamily: "Nunito-Regular",
-                fontSize: { xs: "13px", md: "14px", lg: "15px" },
-                lineHeight: 1.8,
+                fontSize: {
+                  xs: "13px",
+                  sm: "14px",
+                  md: "14px",
+                  lg: "15px",
+                },
+
+                lineHeight: {
+                  xs: 1.7,
+                  md: 1.8,
+                },
                 mb: 1,
                 color: "#333",
                 animation: `fadeIn-${activeIndex} 0.5s ease-out forwards`,
