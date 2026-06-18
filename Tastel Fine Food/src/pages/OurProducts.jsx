@@ -1,5 +1,6 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
+import React, { useEffect } from "react";
 import banner from "../assets/banner_our_products.png";
 import bgall from "../assets/bg_all.png";
 
@@ -26,6 +27,7 @@ const productRows = [
         src: MealKits,
         alt: "Meal Kits",
         title: "Meal Kits",
+        link: "/meal-kits",
         description:
           "If you're seeking a convenient yet wholesome lunch or dinner option, look no further than Taste'L's Meal Kits. Carefully selected ingredients are packaged in just the right proportions.",
       },
@@ -34,6 +36,7 @@ const productRows = [
         src: CurriesGrains,
         alt: "Curries and Grains",
         title: "Ready to Serve \n Curries & Grains",
+        link: "/ready-to-serve-curries-grains",
         description:
           "In the West, curries are synonymous with India, and for good reason too! We have generations of experience when it comes to making the perfect base to amp up the deliciousness of any food dish.",
       },
@@ -42,6 +45,7 @@ const productRows = [
         src: SimmerSauces,
         alt: "Simmer Sauces",
         title: "Simmer Sauces & \n Stir Fry Sauces",
+        link: "/simmer-sauces-stir-fry-sauces",
         description:
           "Bottled up and ready to turn simple ingredients into a grand feast, our simmer and stir fry sauces are the life of every meal. They make you the masterchef you've always wanted to be.",
       },
@@ -56,6 +60,7 @@ const productRows = [
         src: CurryPastes,
         alt: "Curry Pastes and Marinades",
         title: "Curry Pastes & \n  Marinades",
+        link: "/curry-pastes-marinades",
         description:
           "Fancy cooking elaborate classic meals for your friends and family? Let our curry pastes and marinades lend you a helping hand and make the final results worth all the effort.",
       },
@@ -64,6 +69,7 @@ const productRows = [
         src: CondimentsSpices,
         alt: "Condiments and Spices",
         title: "Condiments & \n  Spices",
+        link: "/condiments-spices",
         description:
           "Flavour your dishes with the finest range of condiments and spices from Taste'L. Our high quality resources allow us to bring you the freshest and most fragrant flavours.",
       },
@@ -72,6 +78,7 @@ const productRows = [
         src: DipsChutneys,
         alt: "Dips and Chutneys",
         title: "Dips & Chutneys",
+        link: "/meal-kits",
         description:
           "Give your snacks an upgrade by pairing them with our hot, spicy, and mouth watering dips and chutneys! Perfect for both Indian and western savoury dishes.",
       },
@@ -86,6 +93,7 @@ const productRows = [
         src: FrozenFood,
         alt: "Frozen Food",
         title: "Frozen Food",
+        link: "/meal-kits",
         description:
           "Our frozen food packets will earn a permanent spot in your freezers. We bring you a wide range of snacks that will come to your rescue when you're famished and out of options. From paranthas to curries to rice dishes, you can now enjoy nutritionally balanced meals every day.",
       },
@@ -94,180 +102,203 @@ const productRows = [
   },
 ];
 
-const ProductCard = ({ src, alt, title, description }) => (
-  <Box
-    sx={{
-      flex: 1,
-      width: "100%",
-      maxWidth: {
-        xs: "100%",
-        md: 320,
-      },
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
-      boxSizing: "border-box",
-    }}
-  >
+const ProductCard = ({ src, alt, title, description, link }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
+  return (
     <Box
-      component="img"
-      src={src}
-      alt={alt}
       sx={{
-        alignItems: "center",
-        width: {
-          xs: "90%",
-          sm: "100%",
-        },
-        height: {
-          xs: 380,
-          sm: 260,
-          md: 300,
-          lg: 340,
-          xl: 390,
-        },
-        objectFit: "cover",
-        borderRadius: "16px",
-        cursor: "pointer",
-        transition: "transform 0.3s ease",
-        //"&:hover": { transform: "scale(1.03)" },
-        "&:active": {
-          border: "2px solid #000",
-        },
-      }}
-    />
-    <Typography
-      sx={{
-        mt: 2,
-        fontWeight: 600,
-        fontSize: {
-          xs: "20px",
-          sm: "18px",
-          md: "20px",
-          lg: "22px",
-        },
-        color: "#32577e",
-        fontFamily: "Nunito-Bold",
+        flex: 1,
         width: "100%",
-        whiteSpace: "pre-line",
-        textAlign: "center",
+        maxWidth: {
+          xs: "100%",
+          md: 320,
+        },
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        minHeight: {
-          xs: "65px",
-          sm: "60px",
-          md: "65px",
-          lg: "70px",
-        },
-        px: 1,
-      }}
-    >
-      {title}
-    </Typography>
-
-    <Typography
-      sx={{
-        mt: 1,
-        fontSize: {
-          xs: "16px",
-          sm: "16px",
-          md: "16px",
-          lg: "16px",
-        },
-        color: "#0a0808",
-        lineHeight: {
-          xs: "22px",
-          sm: "24px",
-          md: "24px",
-          lg: "25px",
-        },
-        letterSpacing: "0.5px",
-        width: "100%",
-        fontFamily: "Nunito-Regular",
         textAlign: "center",
-        px: 1,
-        minHeight: {
-          xs: "100px",
-          sm: "130px",
-          md: "140px",
-          lg: "150px",
-        },
+        boxSizing: "border-box",
       }}
     >
-      {description}
-    </Typography>
-    <Box
-      component="button"
-      sx={{
-        mt: 2,
-        px: 3,
-        py: 1,
-        border: "none",
-        borderRadius: "50px",
-        bgcolor: "#32577e",
-        color: "#d5b06d",
-        fontSize: "14px",
-        fontWeight: 500,
-        fontFamily: "Nunito-Bold",
-        cursor: "pointer",
-        transition: "background-color 0.3s ease",
-        "&:hover": { bgcolor: "#d5b06d", color: "#fff" },
-      }}
-    >
-      Know More
-    </Box>
-  </Box>
-);
+      <Box
+        component="img"
+        src={src}
+        alt={alt}
+        onClick={() => link && navigate(link)}
+        sx={{
+          width: {
+            xs: "90%",
+            sm: "100%",
+          },
+          height: {
+            xs: 380,
+            sm: 260,
+            md: 300,
+            lg: 340,
+            xl: 390,
+          },
+          objectFit: "cover",
+          borderRadius: "16px",
+          cursor: link ? "pointer" : "default",
+          transition: "transform 0.3s ease",
+          "&:hover": {
+            transform: link ? "scale(1.03)" : "none",
+          },
+        }}
+      />
 
+      <Typography
+        sx={{
+          mt: 2,
+          fontWeight: 600,
+          fontSize: {
+            xs: "20px",
+            sm: "18px",
+            md: "20px",
+            lg: "22px",
+          },
+          color: "#32577e",
+          fontFamily: "Nunito-Bold",
+          whiteSpace: "pre-line",
+          textAlign: "center",
+
+          minHeight: {
+            xs: "60px",
+            sm: "70px",
+            md: "80px",
+          },
+
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {title}
+      </Typography>
+
+      <Typography
+        sx={{
+          mt: 1,
+          fontSize: "16px",
+          color: "#0a0808",
+          lineHeight: "24px",
+          letterSpacing: "0.5px",
+          fontFamily: "Nunito-Regular",
+          textAlign: "center",
+          px: 1,
+
+          minHeight: {
+            xs: "130px",
+            sm: "130px",
+            md: "130px",
+            lg: "140px",
+          },
+
+          display: "flex",
+          alignItems: "flex-start",
+          justifyContent: "center",
+        }}
+      >
+        {description}
+      </Typography>
+
+      {link && (
+        <Box
+          component="button"
+          onClick={() => navigate(link)}
+          sx={{
+            mt: 2,
+            px: 3,
+            py: 1,
+            border: "none",
+            borderRadius: "50px",
+            bgcolor: "#32577e",
+            color: "#d5b06d",
+            fontSize: "14px",
+            fontWeight: 500,
+            fontFamily: "Nunito-Bold",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              bgcolor: "#d5b06d",
+              color: "#fff",
+            },
+          }}
+        >
+          Know More
+        </Box>
+      )}
+    </Box>
+  );
+};
 function OurProducts() {
   return (
     <>
       {/* Banner */}
       <Box sx={{ position: "relative", width: "100%" }}>
-  <Box
-    component="img"
-    src={banner}
-    alt="Our Products Banner"
-    sx={{
-      width: "100%",
-      height: {
-        xs: "400px", // mobile
-        sm: "350px", // tablet
-        md: "350px", // laptop
-        lg: "400px", // desktop
-        xl: "450px", // large screens
-      },
-      objectFit: "cover",
-      display: "block",
-    }}
-  />
+        <Box
+          component="img"
+          src={banner}
+          alt="Our Products Banner"
+          sx={{
+            width: "100%",
+            height: {
+              xs: "400px", // mobile
+              sm: "350px", // tablet
+              md: "350px", // laptop
+              lg: "400px", // desktop
+              xl: "450px", // large screens
+            },
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
 
-  <Typography
-    sx={{
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: "100%",
-      textAlign: "center",
-      color: "#d5b06d",
-      fontFamily: "Mattiface",
-      fontWeight: 400,
-      lineHeight: 1,
-      fontSize: {
-        xs: "90px",
-        sm: "110px",
-        md: "120px",
-        lg: "130px",
-        xl: "170px",
-      },
-    }}
-  >
-    Our Products
-  </Typography>
-</Box>
+        <Typography
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "100%",
+            textAlign: "center",
+            color: "#d5b06d",
+            fontFamily: "Mattiface",
+            fontWeight: 400,
+            lineHeight: 1,
+            fontSize: {
+              xs: "90px",
+              sm: "110px",
+              md: "120px",
+              lg: "130px",
+              xl: "170px",
+            },
+
+            animation: "fadeUp 1.5s ease-out forwards",
+
+            "@keyframes fadeUp": {
+              from: {
+                opacity: 0,
+                marginTop: "80px",
+              },
+              to: {
+                opacity: 1,
+                marginTop: "0px",
+              },
+            },
+          }}
+        >
+          Our Products
+        </Typography>
+      </Box>
 
       {/* ✅ Single bgall image — all 3 rows stacked inside it */}
       <Box
@@ -332,6 +363,19 @@ function OurProducts() {
             display: "flex",
             flexDirection: "column",
             width: "100%",
+
+            animation: "slideUp 1.2s ease-out",
+
+            "@keyframes slideUp": {
+              from: {
+                opacity: 0,
+                transform: "translateY(100px)",
+              },
+              to: {
+                opacity: 1,
+                transform: "translateY(0)",
+              },
+            },
           }}
         >
           {productRows.map((row) => (

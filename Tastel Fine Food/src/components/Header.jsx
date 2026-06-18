@@ -1,10 +1,10 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import { AppBar, Toolbar, Box, Typography, IconButton } from "@mui/material";
 import logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  //  const navigate = useNavigate();
+  const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(false);
 
@@ -30,307 +30,319 @@ const Header = () => {
 
   const [scrolled, setScrolled] = useState(false);
 
-useEffect(() => {
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 10);
-  };
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
       {/* HEADER */}
-<AppBar
-  position="fixed"
-  elevation={0}
-  sx={{
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-
-    background: {
-      xs: "#355D89",
-      md: "#355D89",
-      lg: scrolled ? "#355D89" : "transparent",
-    },
-
-
-    boxShadow: "none",
-    zIndex: 1300,
-    transition: "all 0.4s ease",
-  }}
->
-  <Toolbar
-    sx={{
-      height: {
-        xs: "75px",
-        md: "90px",
-        lg: "90px",
-      },
-      px: 0,
-      minHeight: "unset !important",
-    }}
-  >
-    {/* MOBILE + IPAD HEADER */}
-    <Box
-      sx={{
-        display: {
-          xs: "flex",
-          md: "flex",
-          lg: "none",
-        },
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      {/* MENU / CLOSE ICON */}
-     <IconButton
-  onClick={() => setOpenMenu(!openMenu)}
-  sx={{
-    width: 55,
-    height: 55,
-    position: "relative",
-    ml: { xs: 0, sm: 2, md: 3 },
-    pl: { xs: 0.5, sm: 0 },
-  }}
->
-  {/* TOP LINE */}
-  <Box
-    sx={{
-      position: "absolute",
-      width: 30,
-      height: "2.5px",
-      background: "#fff",
-      borderRadius: "20px",
-      transition: "all 0.4s ease",
-      top: "50%",
-      left: "50%",
-      transform: openMenu
-        ? "translateX(-50%) translateY(-50%) rotate(45deg)"
-        : "translateX(-50%) translateY(calc(-50% - 8px)) rotate(0deg)",
-    }}
-  />
-
-  {/* MIDDLE LINE */}
-  <Box
-    sx={{
-      position: "absolute",
-      width: 30,
-      height: "2.5px",
-      background: "#fff",
-      borderRadius: "20px",
-      transition: "all 0.3s ease",
-      top: "50%",
-      left: "50%",
-      transform: "translateX(-50%) translateY(-50%)",
-      opacity: openMenu ? 0 : 1,
-    }}
-  />
-
-  {/* BOTTOM LINE */}
-  <Box
-    sx={{
-      position: "absolute",
-      width: 30,
-      height: "2.5px",
-      background: "#fff",
-      borderRadius: "20px",
-      transition: "all 0.4s ease",
-      top: "50%",
-      left: "50%",
-      transform: openMenu
-        ? "translateX(-50%) translateY(-50%) rotate(-45deg)"
-        : "translateX(-50%) translateY(calc(-50% + 8px)) rotate(0deg)",
-    }}
-  />
-</IconButton>
-
-      {/* RIGHT LOGO */}
-      <Box
-  component="img"
-  src={logo}
-  alt="Logo"
-  // onClick={() => navigate("/")}
-  sx={{
-    height: {
-      xs: 48,
-      sm: 55,
-      md: 62,
-    },
-    objectFit: "contain",
-    mr: {
-      xs: 1,
-      sm: 3,
-      md: 4,
-    },
-    cursor: "pointer",
-  }}
-/>
-    </Box>
-
-    {/* DESKTOP HEADER */}
-    <Box
-      sx={{
-        display: {
-          xs: "none",
-          lg: "flex",
-        },
-        justifyContent: "space-between",
-        alignItems: "center",
-        width: "92%",
-        mx: "auto",
-      }}
-    >
-      {/* LEFT LOGO */}
-      <Box
-  component="img"
-  src={logo}
-  alt="Logo"
-  // onClick={() => navigate("/")}
-  sx={{
-    height: 65,
-    objectFit: "contain",
-    cursor: "pointer",
-  }}
-/>
-
-      {/* DESKTOP MENU */}
-      <Box
+      <AppBar
+        position="fixed"
+        elevation={0}
         sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+
+          background: {
+            xs: "#355D89",
+            md: "#355D89",
+            lg: scrolled ? "#355D89" : "transparent",
+          },
+
+          boxShadow: "none",
+          zIndex: 1300,
+          transition: "all 0.4s ease",
         }}
       >
-        {menuItems.map((item, index) => (
+        <Toolbar
+          sx={{
+            height: {
+              xs: "75px",
+              md: "90px",
+              lg: "90px",
+            },
+            px: 0,
+            minHeight: "unset !important",
+          }}
+        >
+          {/* MOBILE + IPAD HEADER */}
           <Box
-            key={item}
-            onMouseEnter={() => setHoveredMenu(index)}
-            onMouseLeave={() => setHoveredMenu(null)}
-            sx={{ position: "relative" }}
+            sx={{
+              display: {
+                xs: "flex",
+                md: "flex",
+                lg: "none",
+              },
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+            }}
           >
-            <Box
-              onClick={() => {
-                setActiveMenu(index);
-                setTimeout(() => {
-                  setActiveMenu(`inner-${index}`);
-                }, 10);
-              }}
+            {/* MENU / CLOSE ICON */}
+            <IconButton
+              onClick={() => setOpenMenu(!openMenu)}
               sx={{
+                width: 55,
+                height: 55,
                 position: "relative",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                px: 0.5,
-                py: 0,
-                cursor: "pointer",
-                border:
-                  activeMenu === index || activeMenu === `inner-${index}`
-                    ? `1px solid ${scrolled ? "#fff" : "#000"}`
-                    : "1px solid transparent",
-                borderRadius: "4px",
+                ml: { xs: 0, sm: 2, md: 3 },
+                pl: { xs: 0.5, sm: 0 },
               }}
             >
-              {/* INNER BORDER */}
+              {/* TOP LINE */}
               <Box
                 sx={{
                   position: "absolute",
-                  inset: "2px",
-                  border:
-                    activeMenu === `inner-${index}`
-                      ? "1px solid #000"
-                      : "1px solid transparent",
-                  pointerEvents: "none",
+                  width: 30,
+                  height: "2.5px",
+                  background: "#fff",
+                  borderRadius: "20px",
+                  transition: "all 0.4s ease",
+                  top: "50%",
+                  left: "50%",
+                  transform: openMenu
+                    ? "translateX(-50%) translateY(-50%) rotate(45deg)"
+                    : "translateX(-50%) translateY(calc(-50% - 8px)) rotate(0deg)",
                 }}
               />
-              <Typography
-                sx={{
-                  color: scrolled ? "#fff" : "#fff",
-                  fontSize: "15px",
-                  // fontFamily: "Segoe UI, Tahoma, sans-serif",
-                  fontFamily: "Nunito Regular , sans-serif",
-                  letterSpacing: "9.5",
-                  position: "relative",
-                  zIndex: 2,
-                  transition: "color 0.4s ease",
-                }}
-              >
-                {item}
-              </Typography>
-            </Box>
 
-            {/* DROPDOWN FOR WHO WE ARE */}
-            {item === "Who We Are" && hoveredMenu === index && (
+              {/* MIDDLE LINE */}
               <Box
                 sx={{
                   position: "absolute",
-                  top: "100%",
-                  left: 0,
-                  mt: 0,
-                  pt: 0.5,
-                  background: "#355D89",
-                  zIndex: 1400,
-                  minWidth: "200px",
+                  width: 30,
+                  height: "2.5px",
+                  background: "#fff",
+                  borderRadius: "20px",
+                  transition: "all 0.3s ease",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translateX(-50%) translateY(-50%)",
+                  opacity: openMenu ? 0 : 1,
                 }}
-              >
-                {["Our History", "Vision & Mission"].map((subItem, subIndex) => (
+              />
+
+              {/* BOTTOM LINE */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  width: 30,
+                  height: "2.5px",
+                  background: "#fff",
+                  borderRadius: "20px",
+                  transition: "all 0.4s ease",
+                  top: "50%",
+                  left: "50%",
+                  transform: openMenu
+                    ? "translateX(-50%) translateY(-50%) rotate(-45deg)"
+                    : "translateX(-50%) translateY(calc(-50% + 8px)) rotate(0deg)",
+                }}
+              />
+            </IconButton>
+
+            {/* RIGHT LOGO */}
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
+              onClick={() => {
+                navigate("/");
+                window.location.reload();
+              }}
+              sx={{
+                height: {
+                  xs: 48,
+                  sm: 55,
+                  md: 62,
+                },
+                objectFit: "contain",
+                mr: {
+                  xs: 1,
+                  sm: 3,
+                  md: 4,
+                },
+                cursor: "pointer",
+              }}
+            />
+          </Box>
+
+          {/* DESKTOP HEADER */}
+          <Box
+            sx={{
+              display: {
+                xs: "none",
+                lg: "flex",
+              },
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "92%",
+              mx: "auto",
+            }}
+          >
+            {/* LEFT LOGO */}
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
+              onClick={() => {
+                navigate("/");
+                window.location.reload();
+              }}
+              sx={{
+                height: 65,
+                objectFit: "contain",
+                cursor: "pointer",
+              }}
+            />
+
+            {/* DESKTOP MENU */}
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              {menuItems.map((item, index) => (
+                <Box
+                  key={item}
+                  onMouseEnter={() => setHoveredMenu(index)}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                  sx={{ position: "relative" }}
+                >
                   <Box
-                    key={subItem}
-                    onClick={() =>
-                      setActiveSubMenu(
-                        activeSubMenu === subIndex ? null : subIndex
-                      )
-                    }
+                    onClick={() => {
+                      setActiveMenu(index);
+
+                      if (item === "Our Products") {
+                        navigate("/our-products");
+                      }
+
+                      setTimeout(() => {
+                        setActiveMenu(`inner-${index}`);
+                      }, 10);
+                    }}
                     sx={{
                       position: "relative",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      px: 0.5,
+                      py: 0,
                       cursor: "pointer",
                       border:
-                        activeSubMenu === subIndex
-                          ? "1.5px solid white"
-                          : "1.5px solid transparent",
-                      transition: "all .2s ease",
+                        activeMenu === index || activeMenu === `inner-${index}`
+                          ? `1px solid ${scrolled ? "#fff" : "#000"}`
+                          : "1px solid transparent",
+                      borderRadius: "4px",
                     }}
                   >
-                    {/* INNER BLACK BORDER */}
-                    {activeSubMenu === subIndex && (
-                      <Box
-                        sx={{
-                          position: "absolute",
-                          top: "1px",
-                          left: "1px",
-                          right: "1px",
-                          bottom: "1px",
-                          border: "1.5px solid black",
-                          pointerEvents: "none",
-                        }}
-                      />
-                    )}
+                    {/* INNER BORDER */}
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        inset: "2px",
+                        border:
+                          activeMenu === `inner-${index}`
+                            ? "1px solid #000"
+                            : "1px solid transparent",
+                        pointerEvents: "none",
+                      }}
+                    />
                     <Typography
                       sx={{
-                        color: "#fff",
-                        fontSize: "14px",
-                        fontFamily: "Segoe UI, Tahoma, sans-serif",
-                        px: 2,
-                        py: 1.5,
+                        color: scrolled ? "#fff" : "#fff",
+                        fontSize: "15px",
+                        // fontFamily: "Segoe UI, Tahoma, sans-serif",
+                        fontFamily: "Nunito Regular , sans-serif",
+                        letterSpacing: "9.5",
                         position: "relative",
                         zIndex: 2,
+                        transition: "color 0.4s ease",
                       }}
                     >
-                      {subItem}
+                      {item}
                     </Typography>
                   </Box>
-                ))}
-              </Box>
-            )}
+
+                  {/* DROPDOWN FOR WHO WE ARE */}
+                  {item === "Who We Are" && hoveredMenu === index && (
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "100%",
+                        left: 0,
+                        mt: 0,
+                        pt: 0.5,
+                        background: "#355D89",
+                        zIndex: 1400,
+                        minWidth: "200px",
+                      }}
+                    >
+                      {["Our History", "Vision & Mission"].map(
+                        (subItem, subIndex) => (
+                          <Box
+                            key={subItem}
+                            onClick={() =>
+                              setActiveSubMenu(
+                                activeSubMenu === subIndex ? null : subIndex,
+                              )
+                            }
+                            sx={{
+                              position: "relative",
+                              cursor: "pointer",
+                              border:
+                                activeSubMenu === subIndex
+                                  ? "1.5px solid white"
+                                  : "1.5px solid transparent",
+                              transition: "all .2s ease",
+                            }}
+                          >
+                            {/* INNER BLACK BORDER */}
+                            {activeSubMenu === subIndex && (
+                              <Box
+                                sx={{
+                                  position: "absolute",
+                                  top: "1px",
+                                  left: "1px",
+                                  right: "1px",
+                                  bottom: "1px",
+                                  border: "1.5px solid black",
+                                  pointerEvents: "none",
+                                }}
+                              />
+                            )}
+                            <Typography
+                              sx={{
+                                color: "#fff",
+                                fontSize: "14px",
+                                fontFamily: "Segoe UI, Tahoma, sans-serif",
+                                px: 2,
+                                py: 1.5,
+                                position: "relative",
+                                zIndex: 2,
+                              }}
+                            >
+                              {subItem}
+                            </Typography>
+                          </Box>
+                        ),
+                      )}
+                    </Box>
+                  )}
+                </Box>
+              ))}
+            </Box>
           </Box>
-        ))}
-      </Box>
-    </Box>
-  </Toolbar>
-</AppBar>
+        </Toolbar>
+      </AppBar>
 
       {/* LEFT TO RIGHT MENU SCREEN */}
       <Box
@@ -405,6 +417,11 @@ useEffect(() => {
 
                   setInnerBorder(index);
                   setActiveSubMenu(null);
+
+                  if (item === "Our Products") {
+                    navigate("/our-products");
+                    setOpenMenu(false);
+                  }
 
                   if (item === "Who We Are") {
                     setOpenSubMenu(!openSubMenu);
@@ -492,7 +509,6 @@ useEffect(() => {
                     borderBottom: "1px solid rgba(255,255,255,0.8)",
 
                     width: "100%",
-                    
                   }}
                 />
               )}
@@ -570,8 +586,8 @@ useEffect(() => {
                               },
 
                               px: 2,
-mx: "auto",
-maxWidth: "100%",
+                              mx: "auto",
+                              maxWidth: "100%",
 
                               textAlign: "left",
 
@@ -590,7 +606,6 @@ maxWidth: "100%",
                             borderBottom: "1px solid rgba(255,255,255,0.8)",
 
                             width: "100%",
-                           
                           }}
                         />
                       </Box>
@@ -605,8 +620,7 @@ maxWidth: "100%",
                   sx={{
                     borderBottom: "1px solid rgba(255,255,255,0.8)",
 
-                    width:"100%",
-                   
+                    width: "100%",
                   }}
                 />
               )}

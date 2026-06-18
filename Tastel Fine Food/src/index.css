@@ -5,6 +5,8 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   overflow-x: hidden;
 }

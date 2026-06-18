@@ -1,7 +1,6 @@
 import Header from "./components/Header";
-import Footer from './components/Footer';
-import Routing from "./routes/RoutesConfig"
-
+import Footer from "./components/Footer";
+import Routing from "./routes/RoutesConfig";
 
 function App() {
   return (
