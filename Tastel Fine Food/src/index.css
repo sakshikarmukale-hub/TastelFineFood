@@ -10,3 +10,56 @@ body,
 #root {
   overflow-x: hidden;
 }
+
+@import "./styles/fonts.css";
+
+:root {
+  --navy: #16314f;
+  --navy-deep: #102540;
+  --gold: #c9a04e;
+  --gold-soft: #d8b56b;
+  --blue-link: #1c6ea4;
+  --text-dark: #2b2b2b;
+  --text-muted: #5c5c5c;
+  --bg-cream: #fdfcfa;
+  --border-soft: #c9c9c9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Nunito-Regular", sans-serif;
+  color: var(--text-dark);
+  background: var(--bg-cream);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: "Nunito-SemiBold", sans-serif;
+}
+
+.script-heading {
+  font-family: "Mattiface", cursive;
+  color: var(--gold);
+  line-height: 1.25;
+  margin: 0;
+}
