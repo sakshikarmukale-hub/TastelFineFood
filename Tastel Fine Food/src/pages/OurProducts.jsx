@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import banner from "../assets/banner_our_products.png";
 import bgall from "../assets/bg_all.png";
 
@@ -78,7 +78,7 @@ const productRows = [
         src: DipsChutneys,
         alt: "Dips and Chutneys",
         title: "Dips & Chutneys",
-        link: "/meal-kits",
+        link: "/dips-chutneys",
         description:
           "Give your snacks an upgrade by pairing them with our hot, spicy, and mouth watering dips and chutneys! Perfect for both Indian and western savoury dishes.",
       },
@@ -93,7 +93,7 @@ const productRows = [
         src: FrozenFood,
         alt: "Frozen Food",
         title: "Frozen Food",
-        link: "/meal-kits",
+        link: "/frozen-food",
         description:
           "Our frozen food packets will earn a permanent spot in your freezers. We bring you a wide range of snacks that will come to your rescue when you're famished and out of options. From paranthas to curries to rice dishes, you can now enjoy nutritionally balanced meals every day.",
       },
@@ -240,6 +240,26 @@ const ProductCard = ({ src, alt, title, description, link }) => {
   );
 };
 function OurProducts() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {/* Banner */}
@@ -359,12 +379,15 @@ function OurProducts() {
         />
         {/* All 3 rows stacked vertically inside one background */}
         <Box
+          ref={sectionRef}
           sx={{
             display: "flex",
             flexDirection: "column",
             width: "100%",
 
-            animation: "slideUp 1.2s ease-out",
+            opacity: isVisible ? 1 : 0,
+            transform: isVisible ? "translateY(0)" : "translateY(100px)",
+            transition: "all 1s ease",
 
             "@keyframes slideUp": {
               from: {

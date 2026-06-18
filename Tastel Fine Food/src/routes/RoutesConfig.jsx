@@ -17,6 +17,8 @@ import ReadyToServeCurriesGrains from "../components/products/ready-to-serve-cur
 import SimmerSaucesStirFrySauces from "../components/products/simmer-sauces-stir-fry-sauces";
 import CurryPastesMarinades from "../components/products/curry-pastes-marinades";
 import CondimentSpices from "../components/products/condiments-spices";
+import DipsChutneys from "../components/products/dips-chutneys";
+import FrozenFood from "../components/products/frozen-food";
 
 const Routing = () => {
   return (
@@ -30,7 +32,7 @@ const Routing = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/our-history" element={<OurHistory />} />
-        <Route path="/vision-mission" element={<VisionMission />}/>
+        <Route path="/vision-mission" element={<VisionMission />} />
       </Routes>
 
       {/* In our products product */}
@@ -49,6 +51,8 @@ const Routing = () => {
           element={<CurryPastesMarinades />}
         />
         <Route path="/condiments-spices" element={<CondimentSpices />} />
+        <Route path="/dips-chutneys" element={<DipsChutneys />} />
+        <Route path="/frozen-food" element={<FrozenFood />} />
       </Routes>
     </>
   );
