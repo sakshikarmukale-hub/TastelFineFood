@@ -221,8 +221,34 @@ const Header = () => {
                     onClick={() => {
                       setActiveMenu(index);
 
+                      {
+                        /* if (item === "Who We Are") {
+    navigate("/who-we-are");
+  } */
+                      }
+
+                      if (item === "What We Do") {
+                        navigate("/what-we-do");
+                      }
+
                       if (item === "Our Products") {
                         navigate("/our-products");
+                      }
+
+                      if (item === "Innovation") {
+                        navigate("/innovation");
+                      }
+
+                      if (item === "Sustainability") {
+                        navigate("/sustainability");
+                      }
+
+                      if (item === "Careers") {
+                        navigate("/careers");
+                      }
+
+                      if (item === "Contact Us") {
+                        navigate("/contact-us");
                       }
 
                       setTimeout(() => {
@@ -418,14 +444,36 @@ const Header = () => {
                   setInnerBorder(index);
                   setActiveSubMenu(null);
 
-                  if (item === "Our Products") {
-                    navigate("/our-products");
-                    setOpenMenu(false);
-                  }
-
                   if (item === "Who We Are") {
                     setOpenSubMenu(!openSubMenu);
+                    return;
                   }
+
+                  if (item === "What We Do") {
+                    navigate("/what-we-do");
+                  }
+
+                  if (item === "Our Products") {
+                    navigate("/our-products");
+                  }
+
+                  if (item === "Innovation") {
+                    navigate("/innovation");
+                  }
+
+                  if (item === "Sustainability") {
+                    navigate("/sustainability");
+                  }
+
+                  if (item === "Careers") {
+                    navigate("/careers");
+                  }
+
+                  if (item === "Contact Us") {
+                    navigate("/contact-us");
+                  }
+
+                  setOpenMenu(false);
                 }}
                 sx={{
                   position: "relative",
@@ -525,11 +573,21 @@ const Header = () => {
                     (subItem, subIndex) => (
                       <Box key={subItem}>
                         <Box
-                          onClick={() =>
+                          onClick={() => {
                             setActiveSubMenu(
                               activeSubMenu === subIndex ? null : subIndex,
-                            )
-                          }
+                            );
+
+                            if (subItem === "Our History") {
+                              navigate("/our-history");
+                              setOpenMenu(false);
+                            }
+
+                            if (subItem === "Vision & Mission") {
+                              navigate("/vision-mission");
+                              setOpenMenu(false);
+                            }
+                          }}
                           sx={{
                             position: "relative",
 
