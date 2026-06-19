@@ -2028,6 +2028,10 @@ const Home = () => {
                       background: "#D7AF64",
                       color: "#fff",
                     },
+                     ml: {
+      xs: 30,   // mobile
+      md: 20,   // tablet/desktop
+    },
                   }}
                 >
                   Send
