@@ -98,8 +98,7 @@ function CareersHero() {
         sx={{
           position: "absolute",
           inset: 0,
-          background:
-            "linear-gradient(180deg, rgba(16,37,64,0.55) 0%, rgba(16,37,64,0.68) 100%)",
+          background: "transparent",
         }}
       />
       <Box

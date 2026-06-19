@@ -96,7 +96,7 @@ function HistoryHero() {
         textAlign: "center",
       }}
     >
-      <Box sx={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(16,37,64,0.55) 0%, rgba(16,37,64,0.68) 100%)" }} />
+      <Box sx={{ position: "absolute", inset: 0, background: "transparent" }} />
       <Typography
         className="script-heading"
         sx={{
@@ -297,8 +297,8 @@ function QuoteSection() {
           <Typography
             sx={{
               fontFamily: "Nunito-SemiBold, sans-serif",
-              color: "var(--blue-link)",
-              fontSize: { xs: "1.2rem", md: "1.9rem" },
+              color: "#32577e",
+              fontSize: { xs: "1.2rem", md: "2rem" },
               lineHeight: 1.2,
             }}
           >
@@ -309,7 +309,7 @@ function QuoteSection() {
           <Typography
             sx={{
               fontFamily: "Nunito-Regular, sans-serif",
-              color: "var(--text-muted)",
+              color: "#0a0808",
               mt: 3,
             }}
           >
@@ -363,7 +363,7 @@ function TimelineSection() {
       sx={{
         position: "relative",
         width: "100%",
-        minHeight: { xs: 560, md: 640 },
+        minHeight: { xs: 560, md: 660 },
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -374,11 +374,12 @@ function TimelineSection() {
         textAlign: "center",
         overflow: "hidden",
         pt: { xs: 6, md: 8 },
+
         pb: 0,
       }}
     >
       {/* Dark overlay */}
-      <Box sx={{ position: "absolute", inset: 0, background: "rgba(22,49,79,0.72)" }} />
+      <Box sx={{ position: "absolute", inset: 0, background: "transparent"}} />
 
       {/* Prev arrow */}
       <IconButton
@@ -462,7 +463,7 @@ function TimelineSection() {
             color: "#ffffff",
             fontFamily: "Nunito-Bold, sans-serif",
             fontWeight: 700,
-            fontSize: { xs: "3rem", md: "4.5rem" },
+            fontSize: { xs: "3rem", md: "8.5rem" },
             lineHeight: 1,
           }}
         >
