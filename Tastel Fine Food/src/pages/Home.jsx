@@ -1,4 +1,4 @@
-import { Box,  TextField, Typography, Button } from "@mui/material";
+import { Box, TextField, Typography, Button } from "@mui/material";
 import React from "react";
 import { keyframes } from "@emotion/react";
 import { motion } from "framer-motion";
@@ -32,7 +32,6 @@ import eachImg from "../assets/each.jpg";
 import mirchImg from "../assets/mirch.png";
 import eachLogo from "../assets/each_logo.png";
 
-
 /* Our Brand Section */
 import ourIcon1 from "../assets/our_icon_1.png";
 import ourIcon2 from "../assets/our_icon_2.png";
@@ -47,10 +46,10 @@ import certi2 from "../assets/certi_2.png";
 import certi3 from "../assets/certi_3.png";
 import certi7 from "../assets/certi_7.png";
 import certi8 from "../assets/certi_8.png";
-import c_mirch from "../assets/c_mirch.png"
-import c_haldi from "../assets/c_haldi.png"
+import c_mirch from "../assets/c_mirch.png";
+import c_haldi from "../assets/c_haldi.png";
 
- /* Contact Section */
+/* Contact Section */
 import khadaM from "../assets/khada_m.png";
 import getIlc from "../assets/get_ilc.png";
 import getLeaf from "../assets/get_leaf.png";
@@ -592,20 +591,18 @@ const Home = () => {
       <Box
         sx={{
           background: "#355D89",
-          py: { xs: 5, md: 7 },
-          px: { xs: 2, sm: 4, md: 6 },
+          py: { xs: 4, sm: 5, md: 7 },
+          px: { xs: 2, sm: 3, md: 6 },
           overflow: "hidden",
 
           "& .swiper-pagination": {
             mt: 4,
             position: "relative",
           },
-
           "& .swiper-pagination-bullet": {
             background: "#fff",
             opacity: 0.5,
           },
-
           "& .swiper-pagination-bullet-active": {
             opacity: 1,
             background: "#E8B86D",
@@ -618,12 +615,7 @@ const Home = () => {
             sx={{
               fontFamily: "Mattiface",
               color: "#E8B86D",
-              fontSize: {
-                xs: "40px",
-                sm: "60px",
-                md: "75px",
-                lg: "90px",
-              },
+              fontSize: { xs: "42px", sm: "55px", md: "75px", lg: "90px" },
               lineHeight: 1,
             }}
           >
@@ -634,11 +626,7 @@ const Home = () => {
             sx={{
               fontFamily: "Nunito-Regular",
               color: "#fff",
-              fontSize: {
-                xs: "14px",
-                sm: "16px",
-                md: "18px",
-              },
+              fontSize: { xs: "14px", sm: "16px", md: "18px" },
               mt: 1.5,
               lineHeight: 1,
             }}
@@ -659,13 +647,13 @@ const Home = () => {
           <Swiper
             modules={[Pagination]}
             pagination={{ clickable: true }}
-            spaceBetween={40}
             slidesPerView={1}
             centeredSlides={false}
             breakpoints={{
-              400: { slidesPerView: 1.3 },
-              600: { slidesPerView: 2.2 },
-              900: { slidesPerView: 3 },
+              0: { slidesPerView: 1, spaceBetween: 20 },
+              600: { slidesPerView: 1.2, spaceBetween: 25 },
+              900: { slidesPerView: 2, spaceBetween: 30 },
+              1200: { slidesPerView: 3, spaceBetween: 40 },
             }}
             style={{
               paddingBottom: "50px",
@@ -675,9 +663,71 @@ const Home = () => {
           >
             {cards.map((card, index) => (
               <SwiperSlide key={index}>
+                {/* MOBILE & TABLET (xs, sm, md) */}
                 <Box
                   sx={{
-                    display: "flex",
+                    display: { xs: "flex", lg: "none" },
+                    flexDirection: "column",
+                    gap: 1.5,
+                  }}
+                >
+                  {/* TOP ROW — image left, title right */}
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "flex-start",
+                      gap: 2,
+                    }}
+                  >
+                    {/* IMAGE */}
+                    <Box
+                      component="img"
+                      src={card.image}
+                      alt={card.title}
+                      sx={{
+                        width: { xs: "140px", sm: "200px", md: "240px" },
+                        height: { xs: "180px", sm: "240px", md: "280px" },
+                        objectFit: "cover",
+                        borderRadius: "16px",
+                        flexShrink: 0,
+                      }}
+                    />
+
+                    {/* TITLE — right of image */}
+                    <Box sx={{ pt: 1 }}>
+                      <Typography
+                        sx={{
+                          fontFamily: "Nunito-Regular",
+                          color: "#fff",
+                          fontSize: { xs: "22px", sm: "26px", md: "28px" },
+                          lineHeight: 1.2,
+                          whiteSpace: "pre-line",
+                        }}
+                      >
+                        {card.title}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  {/* DESCRIPTION — below image+title row */}
+                  <Typography
+                    sx={{
+                      fontFamily: "Nunito-Regular",
+                      color: "rgba(255,255,255,0.85)",
+                      fontSize: { xs: "13px", sm: "14px", md: "15px" },
+                      lineHeight: 1.7,
+                      px: 0.5,
+                    }}
+                  >
+                    {card.description}
+                  </Typography>
+                </Box>
+
+                {/* DESKTOP (lg+) — original layout unchanged */}
+                <Box
+                  sx={{
+                    display: { xs: "none", lg: "flex" },
                     flexDirection: "row",
                     alignItems: "flex-start",
                   }}
@@ -690,18 +740,8 @@ const Home = () => {
                       src={card.image}
                       alt={card.title}
                       sx={{
-                        width: {
-                          xs: "140px",
-                          sm: "160px",
-                          md: "180px",
-                          lg: "260px",
-                        },
-                        height: {
-                          xs: "180px",
-                          sm: "200px",
-                          md: "230px",
-                          lg: "320px",
-                        },
+                        width: "260px",
+                        height: "320px",
                         objectFit: "cover",
                         borderRadius: "16px",
                         display: "block",
@@ -712,14 +752,9 @@ const Home = () => {
                     <Box
                       sx={{
                         position: "absolute",
-                        top: { xs: "16px", md: "20px" },
-                        left: "90%", // starts from middle of image
-                        right: {
-                          xs: "-80px",
-                          sm: "-90px",
-                          md: "-100px",
-                          lg: "-130px",
-                        }, // extends beyond image to the right
+                        top: "20px",
+                        left: "90%",
+                        right: "-130px",
                         zIndex: 2,
                       }}
                     >
@@ -727,12 +762,7 @@ const Home = () => {
                         sx={{
                           fontFamily: "Nunito-Regular",
                           color: "#fff",
-                          fontSize: {
-                            xs: "20px",
-                            sm: "22px",
-                            md: "24px",
-                            lg: "30px",
-                          },
+                          fontSize: "30px",
                           lineHeight: 1.2,
                           whiteSpace: "pre-line",
                         }}
@@ -743,17 +773,12 @@ const Home = () => {
                   </Box>
 
                   {/* DESCRIPTION TEXT — to the right of image */}
-                  <Box
-                    sx={{
-                      pt: { xs: "70px", sm: "80px", md: "90px", lg: "110px" }, // push below the title
-                      pl: 2,
-                    }}
-                  >
+                  <Box sx={{ pt: "110px", pl: 2 }}>
                     <Typography
                       sx={{
                         fontFamily: "Nunito-Regular",
                         color: "rgba(255,255,255,0.85)",
-                        fontSize: { xs: "12px", sm: "13px", md: "14px" },
+                        fontSize: "15px",
                         lineHeight: 1.7,
                       }}
                     >
@@ -798,6 +823,7 @@ const Home = () => {
 
       {/* Section 4 */}
       {/* Each Creation Section */}
+
       <Box
         sx={{
           width: "100%",
@@ -805,16 +831,13 @@ const Home = () => {
           overflow: "hidden",
         }}
       >
+        {/* LEFT TOP DECOR */}
         <Box
           component={motion.img}
           src={mirchImg}
           alt="Mirch"
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{
             duration: 3,
             ease: "easeInOut",
@@ -841,7 +864,7 @@ const Home = () => {
             width: {
               xs: "20px",
               sm: "40px",
-              md: "90px",
+              md: "80px", // FIXED (iPad only)
               lg: "120px",
             },
 
@@ -856,14 +879,10 @@ const Home = () => {
           component={motion.img}
           src={eachLogo}
           alt="Each Logo"
-          initial={{
-            opacity: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{
-            duration: 3, // jitna bada, utna slow fade
+            duration: 3,
             ease: "easeInOut",
           }}
           viewport={{
@@ -887,7 +906,7 @@ const Home = () => {
             width: {
               xs: "40px",
               sm: "70px",
-              md: "120px",
+              md: "110px", // FIXED (iPad only)
               lg: "180px",
             },
 
@@ -897,6 +916,7 @@ const Home = () => {
           }}
         />
 
+        {/* MAIN WRAPPER */}
         <Box
           sx={{
             display: "flex",
@@ -915,6 +935,7 @@ const Home = () => {
 
             gap: {
               xs: 4,
+              md: 6, // FIXED (iPad spacing)
               lg: 10,
             },
 
@@ -929,7 +950,6 @@ const Home = () => {
                 xs: "block",
                 md: "none",
               },
-
               textAlign: "center",
               mb: 2,
             }}
@@ -966,14 +986,8 @@ const Home = () => {
           {/* IMAGE */}
           <Box
             component={motion.div}
-            initial={{
-              opacity: 0,
-              x: -120,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
+            initial={{ opacity: 0, x: -120 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{
               duration: 1.8,
               ease: "easeOut",
@@ -995,14 +1009,14 @@ const Home = () => {
                 width: {
                   xs: "100%",
                   sm: "400px",
-                  md: "550px",
+                  md: "450px", // FIXED (iPad only)
                   lg: "550px",
                 },
 
                 height: {
                   xs: "300px",
                   sm: "400px",
-                  md: "500px",
+                  md: "450px", // FIXED (iPad only)
                   lg: "540px",
                 },
 
@@ -1016,14 +1030,8 @@ const Home = () => {
           {/* TEXT CONTENT */}
           <Box
             component={motion.div}
-            initial={{
-              opacity: 0,
-              x: 120,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
+            initial={{ opacity: 0, x: 120 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{
               duration: 1.8,
               delay: 0.2,
@@ -1048,7 +1056,7 @@ const Home = () => {
               },
             }}
           >
-            {/* DESKTOP HEADING */}
+            {/* DESKTOP HEADING (UNCHANGED) */}
             <Typography
               sx={{
                 display: {
@@ -1060,7 +1068,7 @@ const Home = () => {
                 color: "#D7AF64",
 
                 fontSize: {
-                  md: "70px",
+                  md: "60px", // FIXED ONLY iPad
                   lg: "100px",
                 },
 
@@ -1069,12 +1077,12 @@ const Home = () => {
                 position: "absolute",
 
                 left: {
-                  md: "-140px",
+                  md: "-90px", // FIXED ONLY iPad
                   lg: "-160px",
                 },
 
                 top: {
-                  md: "-70px",
+                  md: "-40px", // FIXED ONLY iPad
                   lg: "-80px",
                 },
 
@@ -1096,7 +1104,7 @@ const Home = () => {
                 color: "#D7AF64",
 
                 fontSize: {
-                  md: "70px",
+                  md: "60px", // FIXED ONLY iPad
                   lg: "100px",
                 },
 
@@ -1105,12 +1113,12 @@ const Home = () => {
                 position: "absolute",
 
                 left: {
-                  md: "-60px",
+                  md: "-40px", // FIXED ONLY iPad
                   lg: "-70px",
                 },
 
                 top: {
-                  md: "-2px",
+                  md: "10px", // FIXED ONLY iPad
                   lg: "-20px",
                 },
 
@@ -1121,11 +1129,12 @@ const Home = () => {
               is a Masterpiece
             </Typography>
 
+            {/* CONTENT */}
             <Box
               sx={{
                 mt: {
                   xs: 0,
-                  md: 18,
+                  md: 12, // FIXED iPad
                   lg: 22,
                 },
 
@@ -1160,12 +1169,7 @@ const Home = () => {
                 ensures you get only the best of what we create.
               </Typography>
 
-              <a
-                href="/innovation"
-                style={{
-                  textDecoration: "none",
-                }}
-              >
+              <a href="/innovation" style={{ textDecoration: "none" }}>
                 <Box
                   sx={{
                     mt: 5,
@@ -1429,145 +1433,145 @@ const Home = () => {
       {/* Section 6 */}
       {/* Certification Section */}
       <Box
-  sx={{
-    width: "100%",
-    backgroundImage: `url(${certibg})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
+        sx={{
+          width: "100%",
+          backgroundImage: `url(${certibg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
 
-    position: "relative",
-    zIndex: 1,
+          position: "relative",
+          zIndex: 1,
 
-    mt: {
-      xs: "-100px",
-      md: "-140px",
-      lg: "-200px",
-    },
+          mt: {
+            xs: "-100px",
+            md: "-140px",
+            lg: "-200px",
+          },
 
-    pt: {
-      xs: "140px",
-      md: "180px",
-      lg: "220px",
-    },
+          pt: {
+            xs: "140px",
+            md: "180px",
+            lg: "220px",
+          },
 
-    pb: {
-      xs: 8,
-      md: 10,
-      lg: 12,
-    },
+          pb: {
+            xs: 8,
+            md: 10,
+            lg: 12,
+          },
 
-    overflow: "hidden",
-  }}
->
-  {/* TOP RIGHT HALDI */}
-  <Box
-    component={motion.img}
-    src={c_haldi}
-    alt="Haldi"
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{
-      duration: 3,
-      ease: "easeInOut",
-    }}
-    viewport={{
-      once: true,
-      amount: 0.3,
-    }}
-    sx={{
-      position: "absolute",
+          overflow: "hidden",
+        }}
+      >
+        {/* TOP RIGHT HALDI */}
+        <Box
+          component={motion.img}
+          src={c_haldi}
+          alt="Haldi"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          sx={{
+            position: "absolute",
 
-      left: {
-        lg: "1300px",
-      },
+            left: {
+              lg: "1300px",
+            },
 
-      top: {
-        xs: "20px",
-        md: "20px",
-        lg: "190px",
-      },
+            top: {
+              xs: "20px",
+              md: "20px",
+              lg: "190px",
+            },
 
-      right: {
-        xs: "-10px",
-        md: "0px",
-        lg: "20px",
-      },
+            right: {
+              xs: "-10px",
+              md: "0px",
+              lg: "20px",
+            },
 
-      width: {
-        xs: "70px",
-        sm: "100px",
-        md: "150px",
-        lg: "220px",
-      },
+            width: {
+              xs: "70px",
+              sm: "100px",
+              md: "150px",
+              lg: "220px",
+            },
 
-      height: "auto",
+            height: "auto",
 
-      zIndex: 1,
-      pointerEvents: "none",
-    }}
-  />
+            zIndex: 1,
+            pointerEvents: "none",
+          }}
+        />
 
-  {/* BOTTOM LEFT MIRCH */}
-  <Box
-    component={motion.img}
-    src={c_mirch}
-    alt="Mirch"
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{
-      duration: 3,
-      delay: 0.5,
-      ease: "easeInOut",
-    }}
-    viewport={{
-      once: true,
-      amount: 0.3,
-    }}
-    sx={{
-      position: "absolute",
+        {/* BOTTOM LEFT MIRCH */}
+        <Box
+          component={motion.img}
+          src={c_mirch}
+          alt="Mirch"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{
+            duration: 3,
+            delay: 0.5,
+            ease: "easeInOut",
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          sx={{
+            position: "absolute",
 
-      bottom: {
-        xs: "10px",
-        md: "20px",
-        lg: "10px",
-      },
+            bottom: {
+              xs: "10px",
+              md: "20px",
+              lg: "10px",
+            },
 
-      left: {
-        xs: "-10px",
-        md: "0px",
-        lg: "10px",
-      },
+            left: {
+              xs: "-10px",
+              md: "0px",
+              lg: "10px",
+            },
 
-      width: {
-        xs: "80px",
-        sm: "120px",
-        md: "170px",
-        lg: "250px",
-      },
+            width: {
+              xs: "80px",
+              sm: "120px",
+              md: "170px",
+              lg: "250px",
+            },
 
-      height: "auto",
+            height: "auto",
 
-      zIndex: 1,
-      pointerEvents: "none",
-    }}
-  />
+            zIndex: 1,
+            pointerEvents: "none",
+          }}
+        />
 
-  <Box
-    sx={{
-      maxWidth: "1400px",
-      mx: "auto",
+        <Box
+          sx={{
+            maxWidth: "1400px",
+            mx: "auto",
 
-      position: "relative",
-      zIndex: 2,
+            position: "relative",
+            zIndex: 2,
 
-      px: {
-        xs: 2,
-        sm: 4,
-        md: 6,
-      },
-    }}
-  >
+            px: {
+              xs: 2,
+              sm: 4,
+              md: 6,
+            },
+          }}
+        >
           {/* HEADING */}
           <Typography
             component={motion.h2}
@@ -1645,7 +1649,6 @@ const Home = () => {
           >
             We are backed by internationally recognized systems of food quality
           </Typography>
-
 
           {/* CERTIFICATION CARDS */}
           <Box
@@ -1753,515 +1756,513 @@ const Home = () => {
       {/* Section 7 */}
       {/* Contact Section*/}
       <Box
-  sx={{
-    width: "100%",
-    backgroundImage: `url(${bgAll})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    py: { xs: 8, md: 12 },
-    overflow: "hidden",
-    position: "relative",
-  }}
->
-  {/* TOP LEFT KHADA MIRCH */}
-  <Box
-    component={motion.img}
-    src={khadaM}
-    alt=""
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ duration: 2 }}
-    viewport={{ once: true }}
-    sx={{
-      position: "absolute",
-      top: 0,
-      left: {
-        xs: 10,
-        md: 220,
-      },
-      width: {
-        xs: 60,
-        md: 240,
-      },
-      zIndex: 1,
-    }}
-  />
-
-  {/* TOP RIGHT IMAGE */}
-  <Box
-    component={motion.img}
-    src={getIlc}
-    alt=""
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{
-      duration: 2,
-      delay: 0.3,
-    }}
-    viewport={{ once: true }}
-    sx={{
-      position: "absolute",
-      top: {
-        xs: 20,
-        md: 10,
-      },
-      right: {
-        xs: 10,
-        md: 520,
-      },
-      width: {
-        xs: 70,
-        md: 130,
-      },
-      zIndex: 1,
-    }}
-  />
-
-  <Box
-    sx={{
-      maxWidth: "1400px",
-      mx: "auto",
-      px: {
-        xs: 2,
-        md: 6,
-      },
-      position: "relative",
-      zIndex: 2,
-    }}
-  >
-    {/* HEADING */}
-    <Typography
-      component={motion.h2}
-      initial={{
-        opacity: 0,
-        y: 80,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{ once: true }}
-      sx={{
-        fontFamily: "Mattiface",
-        color: "#D7AF64",
-        textAlign: "center",
-        fontSize: {
-          xs: "55px",
-          md: "90px",
-        },
-        lineHeight: 1,
-
-        mt: -5,
-        mb: 1,
-      }}
-    >
-      Get in Touch
-    </Typography>
-
-    {/* SUBTITLE */}
-    <Typography
-      component={motion.p}
-      initial={{
-        opacity: 0,
-        y: 50,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      transition={{
-        duration: 1,
-        delay: 0.2,
-      }}
-      viewport={{ once: true }}
-      sx={{
-        fontFamily: "Nunito-Bold",
-        color: "#2E5684",
-        textAlign: "center",
-
-        fontSize: {
-          xs: "14px",
-          md: "18px",
-        },
-
-        mt: 1,
-        mb: 4,
-      }}
-    >
-      Want to reach us? Drop in your details and we'll contact you
-    </Typography>
-
-    {/* OVERLAP BOXES */}
-    <Box
-      sx={{
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-
-        flexDirection: {
-          xs: "column",
-          lg: "row",
-        },
-
-        minHeight: {
-          lg: "300px",
-        },
-      }}
-    >
-      {/* LEFT FORM BOX */}
-      <Box
-        component={motion.div}
-        initial={{
-          opacity: 0,
-          x: -120,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        transition={{
-          duration: 1,
-        }}
-        viewport={{ once: true }}
         sx={{
-          width: {
-            xs: "90%",
-            lg: "40%",
-          },
-
-          background: "#F4F4F4",
-
-          borderRadius: "25px",
-
-          p: {
-            xs: 3,
-            md: 6,
-          },
-
+          width: "100%",
+          backgroundImage: `url(${bgAll})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          py: { xs: 8, md: 12 },
+          overflow: "hidden",
           position: "relative",
-
-          zIndex: 3,
         }}
       >
-        {/* LEAF IMAGE */}
+        {/* TOP LEFT KHADA MIRCH */}
         <Box
           component={motion.img}
-          src={getLeaf}
+          src={khadaM}
+          alt=""
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          viewport={{ once: true }}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: {
+              xs: 10,
+              md: 220,
+            },
+            width: {
+              xs: 60,
+              md: 240,
+            },
+            zIndex: 1,
+          }}
+        />
+
+        {/* TOP RIGHT IMAGE */}
+        <Box
+          component={motion.img}
+          src={getIlc}
           alt=""
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{
-             duration: 3,
-      delay: 0.9,
+            duration: 2,
+            delay: 0.3,
           }}
           viewport={{ once: true }}
           sx={{
             position: "absolute",
-
-            left: {
-              xs: "-10px",
-              md: "-80px",
+            top: {
+              xs: 20,
+              md: 10,
             },
-
-            top: "50%",
-
-            transform:
-              "translateY(-50%)",
-
+            right: {
+              xs: 10,
+              md: 520,
+            },
             width: {
-              xs: "70px",
-              md: "110px",
+              xs: 70,
+              md: 130,
             },
-
-            zIndex: 5,
+            zIndex: 1,
           }}
         />
 
-        <TextField
-          fullWidth
-          variant="standard"
-          label="Full Name"
-          sx={{ mb: 2, left:10 }}
-        />
-
-        <TextField
-          fullWidth
-          variant="standard"
-          label="Email Address"
-          sx={{ mb: 2 , left:10}}
-        />
-
-        <TextField
-          fullWidth
-          variant="standard"
-          label="Contact Number"
-          sx={{ mb: 2 , left:10}}
-        />
-
-        <TextField
-          fullWidth
-          variant="standard"
-          label="Message"
-          sx={{ mb: 2, left:10 }}
-        />
-
-        <Box textAlign="center">
-          <Button
+        <Box
+          sx={{
+            maxWidth: "1400px",
+            mx: "auto",
+            px: {
+              xs: 2,
+              md: 6,
+            },
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          {/* HEADING */}
+          <Typography
+            component={motion.h2}
+            initial={{
+              opacity: 0,
+              y: 80,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+            }}
+            viewport={{ once: true }}
             sx={{
-              background: "#315786",
+              fontFamily: "Mattiface",
               color: "#D7AF64",
-              px: 5,
-              borderRadius: "40px",
-              ml: 20,
-              mt: 2,
-              height: "30px",
-              width: "90px",
+              textAlign: "center",
+              fontSize: {
+                xs: "55px",
+                md: "90px",
+              },
+              lineHeight: 1,
 
-              "&:hover": {
-                background: "#D7AF64",
-                color: "#fff"
+              mt: -5,
+              mb: 1,
+            }}
+          >
+            Get in Touch
+          </Typography>
+
+          {/* SUBTITLE */}
+          <Typography
+            component={motion.p}
+            initial={{
+              opacity: 0,
+              y: 50,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+              delay: 0.2,
+            }}
+            viewport={{ once: true }}
+            sx={{
+              fontFamily: "Nunito-Bold",
+              color: "#2E5684",
+              textAlign: "center",
+
+              fontSize: {
+                xs: "14px",
+                md: "18px",
+              },
+
+              mt: 1,
+              mb: 4,
+            }}
+          >
+            Want to reach us? Drop in your details and we'll contact you
+          </Typography>
+
+          {/* OVERLAP BOXES */}
+          <Box
+            sx={{
+              position: "relative",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+
+              flexDirection: {
+                xs: "column",
+                lg: "row",
+              },
+
+              minHeight: {
+                lg: "300px",
               },
             }}
           >
-            Send
-          </Button>
-        </Box>
-      </Box>
+            {/* LEFT FORM BOX */}
+            <Box
+              component={motion.div}
+              initial={{
+                opacity: 0,
+                x: -120,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                duration: 1,
+              }}
+              viewport={{ once: true }}
+              sx={{
+                width: {
+                  xs: "90%",
+                  lg: "40%",
+                },
 
-      {/* RIGHT OFFICE BOX */}
-      <Box
-  component={motion.div}
-  initial={{
-    opacity: 0,
-    x: 120,
-  }}
-  whileInView={{
-    opacity: 1,
-    x: 0,
-  }}
-  transition={{
-    duration: 1,
-  }}
-  viewport={{ once: true }}
-  sx={{
-    width: {
-      xs: "90%",
-      lg: "34%",
-    },
+                background: "#F4F4F4",
 
-    backgroundImage: `linear-gradient(
+                borderRadius: "25px",
+
+                p: {
+                  xs: 3,
+                  md: 6,
+                },
+
+                position: "relative",
+
+                zIndex: 3,
+              }}
+            >
+              {/* LEAF IMAGE */}
+              <Box
+                component={motion.img}
+                src={getLeaf}
+                alt=""
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 3,
+                  delay: 0.9,
+                }}
+                viewport={{ once: true }}
+                sx={{
+                  position: "absolute",
+
+                  left: {
+                    xs: "-10px",
+                    md: "-80px",
+                  },
+
+                  top: "50%",
+
+                  transform: "translateY(-50%)",
+
+                  width: {
+                    xs: "70px",
+                    md: "110px",
+                  },
+
+                  zIndex: 5,
+                }}
+              />
+
+              <TextField
+                fullWidth
+                variant="standard"
+                label="Full Name"
+                sx={{ mb: 2, left: 10 }}
+              />
+
+              <TextField
+                fullWidth
+                variant="standard"
+                label="Email Address"
+                sx={{ mb: 2, left: 10 }}
+              />
+
+              <TextField
+                fullWidth
+                variant="standard"
+                label="Contact Number"
+                sx={{ mb: 2, left: 10 }}
+              />
+
+              <TextField
+                fullWidth
+                variant="standard"
+                label="Message"
+                sx={{ mb: 2, left: 10 }}
+              />
+
+              <Box textAlign="center">
+                <Button
+                  sx={{
+                    background: "#315786",
+                    color: "#D7AF64",
+                    px: 5,
+                    borderRadius: "40px",
+                    ml: 20,
+                    mt: 2,
+                    height: "30px",
+                    width: "90px",
+
+                    "&:hover": {
+                      background: "#D7AF64",
+                      color: "#fff",
+                    },
+                  }}
+                >
+                  Send
+                </Button>
+              </Box>
+            </Box>
+
+            {/* RIGHT OFFICE BOX */}
+            <Box
+              component={motion.div}
+              initial={{
+                opacity: 0,
+                x: 120,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              transition={{
+                duration: 1,
+              }}
+              viewport={{ once: true }}
+              sx={{
+                width: {
+                  xs: "90%",
+                  lg: "34%",
+                },
+
+                backgroundImage: `linear-gradient(
       rgba(35,76,122,0.0),
       rgba(35,76,122,0.0)
     ), url(${addBg})`,
 
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
 
-    borderRadius: "25px",
+                borderRadius: "25px",
 
-    color: "#fff",
+                color: "#fff",
 
-    px: {
-      xs: 3,
-      md: 5,
-      lg: 6,
-    },
+                px: {
+                  xs: 3,
+                  md: 5,
+                  lg: 6,
+                },
 
-    py: {
-      xs: 4,
-      md: 5,
-      lg: 6,
-    },
+                py: {
+                  xs: 4,
+                  md: 5,
+                  lg: 6,
+                },
 
-    mt: {
-      xs: 4,
-      lg: 0,
-    },
+                mt: {
+                  xs: 4,
+                  lg: 0,
+                },
 
-    ml: {
-      lg: "-80px",
-    },
+                ml: {
+                  lg: "-80px",
+                },
 
-    minHeight: {
-      xs: "320px",
-      lg: "470px",
-    },
+                minHeight: {
+                  xs: "320px",
+                  lg: "470px",
+                },
 
-    display: "flex",
-    alignItems: "center",
+                display: "flex",
+                alignItems: "center",
 
-    position: "relative",
+                position: "relative",
 
-    zIndex: 2,
-  }}
->
-  {/* HALDI IMAGE */}
-  <Box
-    component={motion.img}
-    src={haldi}
-    alt=""
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{
-      duration: 3,
-      delay: 0.9,
-    }}
-    viewport={{ once: true }}
-    sx={{
-      position: "absolute",
+                zIndex: 2,
+              }}
+            >
+              {/* HALDI IMAGE */}
+              <Box
+                component={motion.img}
+                src={haldi}
+                alt=""
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{
+                  duration: 3,
+                  delay: 0.9,
+                }}
+                viewport={{ once: true }}
+                sx={{
+                  position: "absolute",
 
-      bottom: {
-        xs: "-30px",
-        md: "-10px",
-      },
+                  bottom: {
+                    xs: "-30px",
+                    md: "-10px",
+                  },
 
-      right: {
-        xs: "-20px",
-        md: "-100px",
-      },
+                  right: {
+                    xs: "-20px",
+                    md: "-100px",
+                  },
 
-      width: {
-        xs: "120px",
-        md: "200px",
-      },
+                  width: {
+                    xs: "120px",
+                    md: "200px",
+                  },
 
-      zIndex: 5,
-    }}
-  />
+                  zIndex: 5,
+                }}
+              />
 
- <Box>
-  <Typography
-    sx={{
-      color: "#D7AF64",
-      fontFamily: "Nunito-Bold",
-      fontSize: {
-        xs: "24px",
-        md: "28px",
-        lg: "32px",
-      },
-      mb: 4,
-      pl: 6, // left spacing
-    }}
-  >
-    Head Office
-  </Typography>
+              <Box>
+                <Typography
+                  sx={{
+                    color: "#D7AF64",
+                    fontFamily: "Nunito-Bold",
+                    fontSize: {
+                      xs: "24px",
+                      md: "28px",
+                      lg: "32px",
+                    },
+                    mb: 4,
+                    pl: 6, // left spacing
+                  }}
+                >
+                  Head Office
+                </Typography>
 
-  {/* ADDRESS */}
-  <Box
-    sx={{
-      display: "flex",
-      alignItems: "flex-start",
-      gap: 2,
-      mb: 3,
-      pl: 6,
-    }}
-  >
-    <Box
-      component="img"
-      src={locationIcon}
-      alt="location"
-      sx={{
-        width: "18px",
-        mt: "3px",
-      }}
-    />
+                {/* ADDRESS */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 2,
+                    mb: 3,
+                    pl: 6,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={locationIcon}
+                    alt="location"
+                    sx={{
+                      width: "18px",
+                      mt: "3px",
+                    }}
+                  />
 
-    <Typography
-      sx={{
-        fontFamily: "Nunito-Regular",
-        fontSize: {
-          xs: "15px",
-          md: "16px",
-        },
-        lineHeight: 1.45,
-      }}
-    >
-      Taste L Fine Food Pvt. Ltd.
-      <br />
-      5th Floor, GYS Infinity, 19-20
-      <br />
-      Netaji Subhash Road, Vile Parle East
-      <br />
-      Mumbai - 400057
-      <br />
-      Maharashtra, INDIA
-    </Typography>
-  </Box>
+                  <Typography
+                    sx={{
+                      fontFamily: "Nunito-Regular",
+                      fontSize: {
+                        xs: "15px",
+                        md: "16px",
+                      },
+                      lineHeight: 1.45,
+                    }}
+                  >
+                    Taste L Fine Food Pvt. Ltd.
+                    <br />
+                    5th Floor, GYS Infinity, 19-20
+                    <br />
+                    Netaji Subhash Road, Vile Parle East
+                    <br />
+                    Mumbai - 400057
+                    <br />
+                    Maharashtra, INDIA
+                  </Typography>
+                </Box>
 
-  {/* PHONE */}
-  <Box
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      gap: 2,
-      mb: 2,
-      pl: 6,
-    }}
-  >
-    <Box
-      component="img"
-      src={callIcon}
-      alt="call"
-      sx={{
-        width: "18px",
-      }}
-    />
+                {/* PHONE */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 2,
+                    mb: 2,
+                    pl: 6,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={callIcon}
+                    alt="call"
+                    sx={{
+                      width: "18px",
+                    }}
+                  />
 
-    <Typography
-      sx={{
-        fontFamily: "Nunito-Regular",
-        fontSize: {
-          xs: "15px",
-          md: "16px",
-        },
-      }}
-    >
-      +91 22 42080050
-    </Typography>
-  </Box>
+                  <Typography
+                    sx={{
+                      fontFamily: "Nunito-Regular",
+                      fontSize: {
+                        xs: "15px",
+                        md: "16px",
+                      },
+                    }}
+                  >
+                    +91 22 42080050
+                  </Typography>
+                </Box>
 
-  {/* EMAIL */}
-  <Box
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      gap: 2,
-      pl: 6,
-    }}
-  >
-    <Box
-      component="img"
-      src={mailIcon}
-      alt="mail"
-      sx={{
-        width: "18px",
-      }}
-    />
+                {/* EMAIL */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 2,
+                    pl: 6,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={mailIcon}
+                    alt="mail"
+                    sx={{
+                      width: "18px",
+                    }}
+                  />
 
-    <Typography
-      sx={{
-        fontFamily: "Nunito-Regular",
-        fontSize: {
-          xs: "15px",
-          md: "16px",
-        },
-      }}
-    >
-      info@tastelfinefood.com
-    </Typography>
-  </Box>
-</Box>
-</Box>
-    </Box>
-  </Box>
-</Box>
-
+                  <Typography
+                    sx={{
+                      fontFamily: "Nunito-Regular",
+                      fontSize: {
+                        xs: "15px",
+                        md: "16px",
+                      },
+                    }}
+                  >
+                    info@tastelfinefood.com
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 };
