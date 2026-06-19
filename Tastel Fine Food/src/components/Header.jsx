@@ -208,7 +208,6 @@ const Header = () => {
                 display: "flex",
                 alignItems: "center",
                 gap: 1.5,
-                
               }}
             >
               {menuItems.map((item, index) => (

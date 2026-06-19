@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { Box, Typography, Stack, IconButton } from "@mui/material";
-import ourbg from "../assets/ourbg.jpg"
-import ourbg1 from "../assets/ourbg1.jpg"
-import ourdhaniya from "../assets/ourdhaniya.png"
-import ourgrlic from "../assets/ourgrlic.png"
-import ourman from "../assets/ourman.jpg"
-import ouryear from "../assets/ouryear.jpg"
-import ourcircule from "../assets/ourcircule.png"
-import ourarrow from "../assets/ourarrow.png"
+import ourbg from "../assets/ourbg.jpg";
+import ourbg1 from "../assets/ourbg1.jpg";
+import ourdhaniya from "../assets/ourdhaniya.png";
+import ourgrlic from "../assets/ourgrlic.png";
+import ourman from "../assets/ourman.jpg";
+import ouryear from "../assets/ouryear.jpg";
+import ourcircule from "../assets/ourcircule.png";
+import ourarrow from "../assets/ourarrow.png";
 
 // Same fonts.css as Careers / Contact pages
 import "../styles/fonts.css";
@@ -15,7 +15,7 @@ import "../styles/fonts.css";
 const ASSETS = {
   banner: ourbg1,
   founded: ourcircule,
-  greenLeaf: ourdhaniya ,
+  greenLeaf: ourdhaniya,
   eachLogo: ourgrlic,
   ourImg: ourman,
   bg: ourbg,
@@ -68,8 +68,13 @@ function useReveal(threshold = 0.2) {
     const node = ref.current;
     if (!node) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -79,7 +84,10 @@ function useReveal(threshold = 0.2) {
 
 function HistoryHero() {
   const [show, setShow] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setShow(true), 150); return () => clearTimeout(t); }, []);
+  useEffect(() => {
+    const t = setTimeout(() => setShow(true), 150);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <Box
@@ -171,7 +179,7 @@ function IntroSection() {
           top: 40,
           right: "6%",
           width: 100,
-          mt:52,
+          mt: 52,
           opacity: 0.9,
           pointerEvents: "none",
         }}
@@ -302,9 +310,9 @@ function QuoteSection() {
               lineHeight: 1.2,
             }}
           >
-            Our ultimate goal is to create organic and sustainable products, with a
-            unique combination of healthy, nutritive, ingredients through research
-            and innovation
+            Our ultimate goal is to create organic and sustainable products,
+            with a unique combination of healthy, nutritive, ingredients through
+            research and innovation
           </Typography>
           <Typography
             sx={{
@@ -335,8 +343,13 @@ function TimelineSection() {
     const node = titleRef.current;
     if (!node) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setTitleVisible(true); observer.disconnect(); } },
-      { threshold: 0.2 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTitleVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -379,7 +392,7 @@ function TimelineSection() {
       }}
     >
       {/* Dark overlay */}
-      <Box sx={{ position: "absolute", inset: 0, background: "transparent"}} />
+      <Box sx={{ position: "absolute", inset: 0, background: "transparent" }} />
 
       {/* Prev arrow */}
       <IconButton
@@ -397,7 +410,12 @@ function TimelineSection() {
           "&:hover": { bgcolor: "#ffffff" },
         }}
       >
-        <Box component="img" src={ASSETS.arrow} alt="" sx={{ width: 16, transform: "scaleX(-1)" ,filter: "brightness(0)", }} />
+        <Box
+          component="img"
+          src={ASSETS.arrow}
+          alt=""
+          sx={{ width: 16, transform: "scaleX(-1)", filter: "brightness(0)" }}
+        />
       </IconButton>
 
       {/* Next arrow */}
@@ -416,7 +434,12 @@ function TimelineSection() {
           "&:hover": { bgcolor: "#ffffff" },
         }}
       >
-        <Box component="img" src={ASSETS.arrow} alt="" sx={{ width: 16 ,filter: "brightness(0)"}} />
+        <Box
+          component="img"
+          src={ASSETS.arrow}
+          alt=""
+          sx={{ width: 16, filter: "brightness(0)" }}
+        />
       </IconButton>
 
       {/* "Timeline of Events" heading — animates up once on scroll into view */}
@@ -469,7 +492,15 @@ function TimelineSection() {
         >
           {current.year}
         </Typography>
-        <Box sx={{ width: "2px", height: 32, bgcolor: "var(--gold)", mx: "auto", my: 2 }} />
+        <Box
+          sx={{
+            width: "2px",
+            height: 32,
+            bgcolor: "var(--gold)",
+            mx: "auto",
+            my: 2,
+          }}
+        />
         <Typography
           sx={{
             color: "#ffffff",
@@ -493,7 +524,15 @@ function TimelineSection() {
           opacity: 0.45,
         }}
       >
-        <Box sx={{ width: "2px", height: 40, bgcolor: "var(--gold)", mx: "auto", mb: 1 }} />
+        <Box
+          sx={{
+            width: "2px",
+            height: 40,
+            bgcolor: "var(--gold)",
+            mx: "auto",
+            mb: 1,
+          }}
+        />
         <Typography
           sx={{
             color: "#ffffff",

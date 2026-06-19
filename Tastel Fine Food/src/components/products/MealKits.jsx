@@ -94,16 +94,16 @@ function MealKits() {
             mb: 5,
             animation: "fadeUp 1.5s ease-out forwards",
 
-              "@keyframes fadeUp": {
-                from: {
-                  opacity: 0,
-                  marginTop: "80px",
-                },
-                to: {
-                  opacity: 1,
-                  marginTop: "0px",
-                },
+            "@keyframes fadeUp": {
+              from: {
+                opacity: 0,
+                marginTop: "80px",
               },
+              to: {
+                opacity: 1,
+                marginTop: "0px",
+              },
+            },
           }}
         >
           <Box
@@ -137,16 +137,16 @@ function MealKits() {
             px: { xs: 2, sm: 2, md: 0 },
             animation: "fadeUp 1.5s ease-out forwards",
 
-              "@keyframes fadeUp": {
-                from: {
-                  opacity: 0,
-                  marginTop: "80px",
-                },
-                to: {
-                  opacity: 1,
-                  marginTop: "0px",
-                },
+            "@keyframes fadeUp": {
+              from: {
+                opacity: 0,
+                marginTop: "80px",
               },
+              to: {
+                opacity: 1,
+                marginTop: "0px",
+              },
+            },
           }}
         >
           <Box

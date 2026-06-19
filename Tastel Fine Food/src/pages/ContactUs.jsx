@@ -1,16 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, Typography, TextField, Button, Stack, Divider } from "@mui/material";
-import contactbg from "../assets/contactbg.jpg"
-import contactchatni from "../assets/contactchatni.png"
-import contactdown from "../assets/contactdown.jpg"
-import contactFrom from "../assets/contactFrom.jpg"
-import contactlavang from "../assets/contactlavang.jpg"
-import contactleaf from "../assets/contactleaf.jpg"
-import contactleaf2 from "../assets/contactleaf2.jpg"
-import contactspun from "../assets/contactspun.jpg"
-import phone from "../assets/phone.png"
-import pin from "../assets/pin.png"
-import gmail from "../assets/gmail.png"
+import {
+  Box,
+  Typography,
+  TextField,
+  Button,
+  Stack,
+  Divider,
+} from "@mui/material";
+import contactbg from "../assets/contactbg.jpg";
+import contactchatni from "../assets/contactchatni.png";
+import contactdown from "../assets/contactdown.jpg";
+import contactFrom from "../assets/contactFrom.jpg";
+import contactlavang from "../assets/contactlavang.jpg";
+import contactleaf from "../assets/contactleaf.jpg";
+import contactleaf2 from "../assets/contactleaf2.jpg";
+import contactspun from "../assets/contactspun.jpg";
+import phone from "../assets/phone.png";
+import pin from "../assets/pin.png";
+import gmail from "../assets/gmail.png";
 // Same fonts.css as the Careers page — adjust path to match your project structure.
 import "../styles/fonts.css";
 
@@ -50,7 +57,7 @@ function useReveal(threshold = 0.2) {
           observer.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -81,7 +88,7 @@ function ContactHero() {
         sx={{
           position: "absolute",
           inset: 0,
-         background: "transparent",
+          background: "transparent",
         }}
       />
       <Typography
@@ -157,13 +164,20 @@ function ContactForm() {
               sx: { fontFamily: "Nunito-Regular, sans-serif" },
             }}
             sx={{
-              "& .MuiInput-underline:before": { borderBottomColor: "var(--border-soft)" },
-              "& .MuiInput-underline:after": { borderBottomColor: "var(--gold)" },
+              "& .MuiInput-underline:before": {
+                borderBottomColor: "var(--border-soft)",
+              },
+              "& .MuiInput-underline:after": {
+                borderBottomColor: "var(--gold)",
+              },
             }}
           />
         ))}
 
-        <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }} pt={1}>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", width: "100%" }}
+          pt={1}
+        >
           <Button
             onClick={handleSubmit}
             variant="contained"
@@ -252,8 +266,8 @@ function ContactFormSection() {
             position: "relative",
             zIndex: 2,
             opacity: rowVisible ? 1 : 0,
-            mr: { md: -10 }, 
-            mt: { md: 25},
+            mr: { md: -10 },
+            mt: { md: 25 },
             transform: {
               xs: rowVisible ? "translateY(0)" : "translateY(30px)",
               md: rowVisible ? "translateX(0)" : "translateX(-90px)",
@@ -306,13 +320,21 @@ function OfficeColumn({ heading, lines, phone, email }) {
           i === 0 ? (
             <Typography
               key={i}
-              sx={{ fontFamily: "Nunito-SemiBold, sans-serif", color: "var(--text-dark)" }}
+              sx={{
+                fontFamily: "Nunito-SemiBold, sans-serif",
+                color: "var(--text-dark)",
+              }}
             >
               {line}
             </Typography>
           ) : (
             <Box key={i} sx={{ display: "flex", gap: 1.5 }}>
-              <Box component="img" src={ASSETS.pin} alt="" sx={{ width: 16, height: 16, mt: "4px" }} />
+              <Box
+                component="img"
+                src={ASSETS.pin}
+                alt=""
+                sx={{ width: 16, height: 16, mt: "4px" }}
+              />
               <Typography
                 sx={{
                   fontFamily: "Nunito-Regular, sans-serif",
@@ -324,15 +346,23 @@ function OfficeColumn({ heading, lines, phone, email }) {
                 {line}
               </Typography>
             </Box>
-          )
+          ),
         )}
         {phone && (
           <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
-            <Box component="img" src={ASSETS.phone} alt="" sx={{ width: 16, height: 16 }} />
+            <Box
+              component="img"
+              src={ASSETS.phone}
+              alt=""
+              sx={{ width: 16, height: 16 }}
+            />
             <Typography
               component="a"
               href={`tel:${phone}`}
-              sx={{ fontFamily: "Nunito-Regular, sans-serif", color: "var(--text-dark)" }}
+              sx={{
+                fontFamily: "Nunito-Regular, sans-serif",
+                color: "var(--text-dark)",
+              }}
             >
               {phone}
             </Typography>
@@ -340,11 +370,19 @@ function OfficeColumn({ heading, lines, phone, email }) {
         )}
         {email && (
           <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
-            <Box component="img" src={ASSETS.mail} alt="" sx={{ width: 16, height: 16 }} />
+            <Box
+              component="img"
+              src={ASSETS.mail}
+              alt=""
+              sx={{ width: 16, height: 16 }}
+            />
             <Typography
               component="a"
               href={`mailto:${email}`}
-              sx={{ fontFamily: "Nunito-Regular, sans-serif", color: "var(--text-dark)" }}
+              sx={{
+                fontFamily: "Nunito-Regular, sans-serif",
+                color: "var(--text-dark)",
+              }}
             >
               {email}
             </Typography>
@@ -427,7 +465,10 @@ function VisitUsSection() {
       >
         <Typography
           className="script-heading"
-          sx={{ fontFamily: "Mattiface, cursive", fontSize: { xs: "2.1rem", sm: "2.6rem", md: "6.2rem" } }}
+          sx={{
+            fontFamily: "Mattiface, cursive",
+            fontSize: { xs: "2.1rem", sm: "2.6rem", md: "6.2rem" },
+          }}
         >
           You can also choose to visit us
         </Typography>
@@ -468,7 +509,11 @@ function VisitUsSection() {
           phone="+91 22 42080050"
           email="info@tastelfinefood.com"
         />
-        <Divider orientation="vertical" flexItem sx={{ display: { xs: "none", sm: "block" } }} />
+        <Divider
+          orientation="vertical"
+          flexItem
+          sx={{ display: { xs: "none", sm: "block" } }}
+        />
         <OfficeColumn
           heading="Factory Address"
           lines={[

@@ -6,12 +6,12 @@ import bgforpage from "../../assets/bg_for_product.png";
 function SimmerSaucesStirFrySauces() {
   const [selected, setSelected] = useState("Simmer Sauces");
 
-   useEffect(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, []);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   const simmerSaucesData = [
     ["Butter Chicken Simmer Sauce", "200g/350g", "Pouch / Glass Jar"],

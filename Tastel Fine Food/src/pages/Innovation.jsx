@@ -40,7 +40,7 @@ const offerData = [
 
 const Innovation = () => {
   const theme = useTheme();
-const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
   return (
     <>
       {/* Hero Section */}
@@ -466,356 +466,354 @@ const isDesktop = useMediaQuery(theme.breakpoints.up("lg"));
         }}
       >
         {/* WE ARE MORE THAN SECTION */}
-<Box
-  sx={{
-    width: "100%",
-    backgroundImage: `url(${Bg1})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-
-    py: {
-      xs: 6,
-      sm: 7,
-      md: 8,
-      lg: 10,
-    },
-
-    px: {
-      xs: 2,
-      sm: 3,
-      md: 5,
-    },
-  }}
->
-  {/* HEADING */}
-  <Box
-    component={motion.div}
-    initial={{
-      opacity: 0,
-      y: 60,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    transition={{
-      duration: 1,
-      ease: "easeOut",
-    }}
-    viewport={{
-      once: true,
-      amount: 0.3,
-    }}
-    sx={{
-      textAlign: "center",
-    }}
-  >
-    <Typography
-      sx={{
-        fontFamily: "Mattiface",
-        color: "#D7AF64",
-
-        fontSize: {
-          xs: "42px",
-          sm: "50px",
-          md: "65px",
-          lg: "85px",
-        },
-
-        lineHeight: 1,
-      }}
-    >
-      We are More than
-    </Typography>
-
-    <Typography
-      sx={{
-        fontFamily: "Nunito-Bold",
-        color: "#355D89",
-
-        fontSize: {
-          xs: "10px",
-          sm: "12px",
-          md: "18px",
-          lg: "22px",
-        },
-
-        mt: 0.5,
-      }}
-    >
-      just products and services
-    </Typography>
-  </Box>
-
-  {/* ICONS */}
-  <Box
-    sx={{
-      maxWidth: "1000px",
-      mx: "auto",
-
-      mt: {
-        xs: 5,
-        md: 7,
-      },
-
-      display: "grid",
-
-      gridTemplateColumns: {
-        xs: "1fr",
-        sm: "repeat(2,1fr)",
-        lg: "repeat(4,1fr)",
-      },
-
-      gap: {
-        xs: 5,
-        sm: 4,
-        md: 5,
-        lg: 1,
-      },
-    }}
-  >
-    {offerData.map((item, index) => (
-      <Box
-        key={index}
-        component={motion.div}
-        initial={{
-          opacity: 0,
-        }}
-        whileInView={{
-          opacity: 1,
-        }}
-       transition={{
-  duration: 0.5,
-  delay: isDesktop ? 0 : index * 0.2,
-}}
-        viewport={{
-          once: true,
-          amount: 0.3,
-        }}
-        sx={{
-          textAlign: "center",
-        }}
-      >
-        {/* ICON */}
         <Box
-          component="img"
-          src={item.image}
-          alt=""
           sx={{
-            width: {
-              xs: "85px",
-              sm: "95px",
-              md: "110px",
-              lg: "110px",
+            width: "100%",
+            backgroundImage: `url(${Bg1})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+
+            py: {
+              xs: 6,
+              sm: 7,
+              md: 8,
+              lg: 10,
             },
 
-            height: "auto",
-
-            display: "block",
-            mx: "auto",
-
-            mb: 1,
-          }}
-        />
-
-        {/* TEXT */}
-        <Typography
-          sx={{
-            fontFamily: "Nunito-Regular",
-            color: "#222",
-
-            fontSize: {
-              xs: "11px",
-              sm: "12px",
-              md: "14px",
-              lg: "16px",
+            px: {
+              xs: 2,
+              sm: 3,
+              md: 5,
             },
-
-            lineHeight: 1.6,
-            letterSpacing: 1,
-
-            maxWidth: {
-              xs: "220px",
-              sm: "240px",
-              md: "260px",
-            },
-
-            mx: "auto",
           }}
         >
-          {item.text}
-        </Typography>
-      </Box>
-    ))}
-  </Box>
-</Box>
+          {/* HEADING */}
+          <Box
+            component={motion.div}
+            initial={{
+              opacity: 0,
+              y: 60,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+            }}
+            viewport={{
+              once: true,
+              amount: 0.3,
+            }}
+            sx={{
+              textAlign: "center",
+            }}
+          >
+            <Typography
+              sx={{
+                fontFamily: "Mattiface",
+                color: "#D7AF64",
+
+                fontSize: {
+                  xs: "42px",
+                  sm: "50px",
+                  md: "65px",
+                  lg: "85px",
+                },
+
+                lineHeight: 1,
+              }}
+            >
+              We are More than
+            </Typography>
+
+            <Typography
+              sx={{
+                fontFamily: "Nunito-Bold",
+                color: "#355D89",
+
+                fontSize: {
+                  xs: "10px",
+                  sm: "12px",
+                  md: "18px",
+                  lg: "22px",
+                },
+
+                mt: 0.5,
+              }}
+            >
+              just products and services
+            </Typography>
+          </Box>
+
+          {/* ICONS */}
+          <Box
+            sx={{
+              maxWidth: "1000px",
+              mx: "auto",
+
+              mt: {
+                xs: 5,
+                md: 7,
+              },
+
+              display: "grid",
+
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2,1fr)",
+                lg: "repeat(4,1fr)",
+              },
+
+              gap: {
+                xs: 5,
+                sm: 4,
+                md: 5,
+                lg: 1,
+              },
+            }}
+          >
+            {offerData.map((item, index) => (
+              <Box
+                key={index}
+                component={motion.div}
+                initial={{
+                  opacity: 0,
+                }}
+                whileInView={{
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: isDesktop ? 0 : index * 0.2,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.3,
+                }}
+                sx={{
+                  textAlign: "center",
+                }}
+              >
+                {/* ICON */}
+                <Box
+                  component="img"
+                  src={item.image}
+                  alt=""
+                  sx={{
+                    width: {
+                      xs: "85px",
+                      sm: "95px",
+                      md: "110px",
+                      lg: "110px",
+                    },
+
+                    height: "auto",
+
+                    display: "block",
+                    mx: "auto",
+
+                    mb: 1,
+                  }}
+                />
+
+                {/* TEXT */}
+                <Typography
+                  sx={{
+                    fontFamily: "Nunito-Regular",
+                    color: "#222",
+
+                    fontSize: {
+                      xs: "11px",
+                      sm: "12px",
+                      md: "14px",
+                      lg: "16px",
+                    },
+
+                    lineHeight: 1.6,
+                    letterSpacing: 1,
+
+                    maxWidth: {
+                      xs: "220px",
+                      sm: "240px",
+                      md: "260px",
+                    },
+
+                    mx: "auto",
+                  }}
+                >
+                  {item.text}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </Box>
       </Box>
 
       {/* Section 4 */}
-  <Box
-  sx={{
-    width: "100%",
-    position: "relative",
-    overflow: "hidden",
-    backgroundImage: `url(${Bg1})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    py: {
-      xs: 5,
-      sm: 6,
-      md: 7,
-      lg: 8,
-    },
-    px: {
-      xs: 2,
-      sm: 3,
-      md: 5,
-    },
-  }}
->
-
-  {/* 🌿 TOP LEFT LEAF IMAGE */}
-  <Box
-    component={motion.img}
-    src={leaf}
-    initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 1 }}
-    viewport={{ once: true, amount: 0.3 }}
-    sx={{
-      position: "absolute",
-      top: { xs: 10, md: 20 },
-      left: { xs: 10, md: 40 },
-      width: { xs: "60px", md: "190px" },
-      height: "auto",
-      zIndex: 1,
-    }}
-  />
-
-  {/* MAIN CONTAINER */}
-  <Box
-    sx={{
-      maxWidth: "1300px",
-      mx: "auto",
-      textAlign: "center",
-      position: "relative",
-      zIndex: 2,
-    }}
-  >
-
-    {/* TITLE (BOTTOM TO TOP ANIMATION) */}
-    <Typography
-      component={motion.h2}
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      sx={{
-        fontFamily: "Mattiface",
-        color: "#D7AF64",
-        fontSize: {
-          xs: "42px",
-          sm: "50px",
-          md: "65px",
-          lg: "85px",
-        },
-        lineHeight: 1.2,
-        mb: 2,
-      }}
-    >
-      Innovation Center
-    </Typography>
-
-    {/* TEXT GROUP (FADE IN TOGETHER) */}
-    <Box
-      component={motion.div}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-    >
-
-      {/* SUB HEADING */}
-      <Typography
+      <Box
         sx={{
-          fontFamily: "Nunito-Bold",
-          color: "#355D89",
-          fontSize: {
-            xs: "10px",
-            sm: "12px",
-            md: "18px",
-            lg: "22px",
+          width: "100%",
+          position: "relative",
+          overflow: "hidden",
+          backgroundImage: `url(${Bg1})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          py: {
+            xs: 5,
+            sm: 6,
+            md: 7,
+            lg: 8,
           },
-          letterSpacing: 0.9,
-          mb: 3,
           px: {
-            xs: 1,
-            sm: 2,
-            md: 6,
-          },
-        }}
-      >
-        We are always looking for new ways to help our patrons experience food.
-      </Typography>
-
-      {/* PARAGRAPH 1 */}
-      <Typography
-        sx={{
-          fontFamily: "Nunito-Regular",
-          color: "#333",
-          fontWeight: 300,
-          fontSize: {
-            xs: "11px",
-            sm: "14px",
-            md: "15px",
-            lg: "17px",
-          },
-          lineHeight: 1.4,
-          px: {
-            xs: 1,
+            xs: 2,
             sm: 3,
-            md: 8,
+            md: 5,
           },
         }}
       >
-        A variety of health issues and the rise in active lifestyles are
-        creating a greater demand for innovative and customized foods. Clients
-        are investing more in themselves as people and it quickly trickles down
-        to their sustenance needs.
-      </Typography>
+        {/* 🌿 TOP LEFT LEAF IMAGE */}
+        <Box
+          component={motion.img}
+          src={leaf}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          sx={{
+            position: "absolute",
+            top: { xs: 10, md: 20 },
+            left: { xs: 10, md: 40 },
+            width: { xs: "60px", md: "190px" },
+            height: "auto",
+            zIndex: 1,
+          }}
+        />
 
-      {/* PARAGRAPH 2 */}
-      <Typography
-        sx={{
-          fontFamily: "Nunito-Regular",
-          color: "#333",
-          fontWeight: 300,
-          fontSize: {
-            xs: "11px",
-            sm: "14px",
-            md: "15px",
-            lg: "17px",
-          },
-          lineHeight: 1.4,
-          px: {
-            xs: 1,
-            sm: 3,
-            md: 8,
-          },
-          mt: 2,
-        }}
-      >
-        Our biggest challenge has been to satisfy the palette without having them
-        compromise their principles (plant-based food) or encourage a sedentary
-        lifestyle (low-fat options). At the same time, they have an inherent need
-        for fresh, functional options in terms of food and beverages.
-      </Typography>
+        {/* MAIN CONTAINER */}
+        <Box
+          sx={{
+            maxWidth: "1300px",
+            mx: "auto",
+            textAlign: "center",
+            position: "relative",
+            zIndex: 2,
+          }}
+        >
+          {/* TITLE (BOTTOM TO TOP ANIMATION) */}
+          <Typography
+            component={motion.h2}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            sx={{
+              fontFamily: "Mattiface",
+              color: "#D7AF64",
+              fontSize: {
+                xs: "42px",
+                sm: "50px",
+                md: "65px",
+                lg: "85px",
+              },
+              lineHeight: 1.2,
+              mb: 2,
+            }}
+          >
+            Innovation Center
+          </Typography>
 
-    </Box>
-  </Box>
-</Box>
+          {/* TEXT GROUP (FADE IN TOGETHER) */}
+          <Box
+            component={motion.div}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            {/* SUB HEADING */}
+            <Typography
+              sx={{
+                fontFamily: "Nunito-Bold",
+                color: "#355D89",
+                fontSize: {
+                  xs: "10px",
+                  sm: "12px",
+                  md: "18px",
+                  lg: "22px",
+                },
+                letterSpacing: 0.9,
+                mb: 3,
+                px: {
+                  xs: 1,
+                  sm: 2,
+                  md: 6,
+                },
+              }}
+            >
+              We are always looking for new ways to help our patrons experience
+              food.
+            </Typography>
+
+            {/* PARAGRAPH 1 */}
+            <Typography
+              sx={{
+                fontFamily: "Nunito-Regular",
+                color: "#333",
+                fontWeight: 300,
+                fontSize: {
+                  xs: "11px",
+                  sm: "14px",
+                  md: "15px",
+                  lg: "17px",
+                },
+                lineHeight: 1.4,
+                px: {
+                  xs: 1,
+                  sm: 3,
+                  md: 8,
+                },
+              }}
+            >
+              A variety of health issues and the rise in active lifestyles are
+              creating a greater demand for innovative and customized foods.
+              Clients are investing more in themselves as people and it quickly
+              trickles down to their sustenance needs.
+            </Typography>
+
+            {/* PARAGRAPH 2 */}
+            <Typography
+              sx={{
+                fontFamily: "Nunito-Regular",
+                color: "#333",
+                fontWeight: 300,
+                fontSize: {
+                  xs: "11px",
+                  sm: "14px",
+                  md: "15px",
+                  lg: "17px",
+                },
+                lineHeight: 1.4,
+                px: {
+                  xs: 1,
+                  sm: 3,
+                  md: 8,
+                },
+                mt: 2,
+              }}
+            >
+              Our biggest challenge has been to satisfy the palette without
+              having them compromise their principles (plant-based food) or
+              encourage a sedentary lifestyle (low-fat options). At the same
+              time, they have an inherent need for fresh, functional options in
+              terms of food and beverages.
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 };

@@ -1,19 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import { Box, Typography, TextField, Button, Stack } from "@mui/material";
-import careerarrow from "../assets/careerarrow.png"
-import careerbanner from "../assets/careerbanner.jpg"
-import careerbg from "../assets/careerbg.jpg"
-import careerdhaniya from "../assets/careerdhaniya.jpg"
-import careerspun from "../assets/careerspun.png"
-import careertamato from "../assets/careertamato.jpg"
-import Dhaniya from "../assets/Dhaniya.png"
+import careerarrow from "../assets/careerarrow.png";
+import careerbanner from "../assets/careerbanner.jpg";
+import careerbg from "../assets/careerbg.jpg";
+import careerdhaniya from "../assets/careerdhaniya.jpg";
+import careerspun from "../assets/careerspun.png";
+import careertamato from "../assets/careertamato.jpg";
+import Dhaniya from "../assets/Dhaniya.png";
 // Loads your Nunito + Mattiface @font-face rules.
 // Adjust this path to wherever fonts.css actually sits in your project.
 import "../styles/fonts.css";
 
 const ASSETS = {
   banner: careerbanner,
-  bg: careerbg ,
+  bg: careerbg,
   greenLeaf: Dhaniya,
   haldi: careerdhaniya,
   shapeLine: careerarrow,
@@ -62,7 +62,7 @@ function useInView(threshold = 0.15) {
           observer.disconnect();
         }
       },
-      { threshold }
+      { threshold },
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -195,8 +195,12 @@ function ApplicationForm({ visible }) {
               sx: { fontFamily: "Nunito-Regular, sans-serif" },
             }}
             sx={{
-              "& .MuiInput-underline:before": { borderBottomColor: "var(--border-soft)" },
-              "& .MuiInput-underline:after": { borderBottomColor: "var(--gold)" },
+              "& .MuiInput-underline:before": {
+                borderBottomColor: "var(--border-soft)",
+              },
+              "& .MuiInput-underline:after": {
+                borderBottomColor: "var(--gold)",
+              },
             }}
           />
         ))}
@@ -252,24 +256,27 @@ function ApplicationForm({ visible }) {
           </Button>
         </Stack>
 
-        <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }} pt={1}>
-              <Button
-                onClick={handleSubmit}
-                variant="contained"
-                sx={{
-                  bgcolor: "var(--navy)",
-                  borderRadius: "20px",
-                  textTransform: "none",
-                  fontFamily: "Nunito-SemiBold, sans-serif",
-                  fontWeight: 500,
-                  px: 4,
-                  py: 1.1,
-                  "&:hover": { bgcolor: "var(--navy-deep)" },
-                }}
-              >
-                Send
-              </Button>
-            </Box>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", width: "100%" }}
+          pt={1}
+        >
+          <Button
+            onClick={handleSubmit}
+            variant="contained"
+            sx={{
+              bgcolor: "var(--navy)",
+              borderRadius: "20px",
+              textTransform: "none",
+              fontFamily: "Nunito-SemiBold, sans-serif",
+              fontWeight: 500,
+              px: 4,
+              py: 1.1,
+              "&:hover": { bgcolor: "var(--navy-deep)" },
+            }}
+          >
+            Send
+          </Button>
+        </Box>
       </Stack>
     </Box>
   );
@@ -383,7 +390,10 @@ function ContactSection() {
       >
         <Typography
           className="script-heading"
-          sx={{ fontFamily: "Mattiface, cursive", fontSize: { xs: "2.1rem", sm: "2.6rem", md: "6.2rem" } }}
+          sx={{
+            fontFamily: "Mattiface, cursive",
+            fontSize: { xs: "2.1rem", sm: "2.6rem", md: "6.2rem" },
+          }}
         >
           Drop us a line at
         </Typography>

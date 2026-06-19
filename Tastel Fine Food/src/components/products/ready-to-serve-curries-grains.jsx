@@ -6,12 +6,12 @@ import bgforpage from "../../assets/bg_for_product.png";
 function ReadyToServeCurriesGrains() {
   const [selected, setSelected] = useState("Natural");
 
-   useEffect(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, []);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   const naturalData = [
     ["Chickpeas Curry / Chana Masala", "284g", "Pouch"],

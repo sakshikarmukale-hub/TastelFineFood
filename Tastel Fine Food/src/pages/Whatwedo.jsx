@@ -514,11 +514,11 @@ function Whatwedo() {
               }}
             >
               {[
-  { ref: retImg1.ref, style: retImg1.style, src: img1 },
-  { ref: retImg2.ref, style: retImg2.style, src: img2 },
-  { ref: retImg3.ref, style: retImg3.style, src: img3 },
-  { ref: retImg4.ref, style: retImg4.style, src: img4 },
-].map((item, i) => (
+                { ref: retImg1.ref, style: retImg1.style, src: img1 },
+                { ref: retImg2.ref, style: retImg2.style, src: img2 },
+                { ref: retImg3.ref, style: retImg3.style, src: img3 },
+                { ref: retImg4.ref, style: retImg4.style, src: img4 },
+              ].map((item, i) => (
                 <Box
                   key={i}
                   ref={item.ref}
