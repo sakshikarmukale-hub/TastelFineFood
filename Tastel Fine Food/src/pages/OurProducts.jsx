@@ -299,7 +299,7 @@ function OurProducts() {
               sm: "110px",
               md: "120px",
               lg: "130px",
-              xl: "170px",
+              xl: "130px",
             },
 
             animation: "fadeUp 1.5s ease-out forwards",
